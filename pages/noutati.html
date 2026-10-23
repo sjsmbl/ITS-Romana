@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arhiva istorică de anunțuri, evenimente și articole despre sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS).">
+<title>Noutăți și arhivă istorică | ITS</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Page-specific styles; the news list itself uses .news-item / .news-date from styles.css */
+  .page-hero {
+    padding: 60px 0 55px;
+    background:
+      radial-gradient(ellipse at 90% 30%, rgba(29, 174, 135, 0.11), transparent 38%),
+      linear-gradient(135deg, #f5fbf8 0%, #ffffff 56%, #eef8f4 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero h1 {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.4px;
+  }
+  .page-hero p {
+    max-width: 680px;
+    margin-top: 18px;
+    color: #64757d;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .archive-notice {
+    max-width: 680px;
+    margin-top: 24px;
+    padding: 16px 20px;
+    border: 1px solid #cce5da;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--navy);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .section-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .section-jump a {
+    padding: 9px 16px;
+    border: 1px solid #dce8e3;
+    border-radius: 8px;
+    background: white;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .section-jump a:hover { border-color: var(--green); color: var(--green); }
+
+  .news-section { padding: 60px 0 10px; }
+  .news-section:last-of-type { padding-bottom: 80px; }
+  .news-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .news-section-heading h2 {
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+  }
+  .news-count { color: var(--muted); font-size: 12px; }
+  .news-section-intro {
+    max-width: 760px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .news-section-intro a { color: var(--green); font-weight: 700; }
+  .news-section-intro a:hover { text-decoration: underline; }
+  .news-copy .resource-tag { margin-bottom: 2px; }
+  .empty-category {
+    padding: 24px;
+    border: 1px dashed #cfe0d8;
+    border-radius: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero { padding: 40px 0 38px; }
+    .page-hero p { font-size: 13px; }
+    .news-section { padding-top: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-content">
+    <span>Sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS)</span>
+    <div class="language-switch">
+      <a href="#">Türkçe</a>
+      <a href="#">English</a>
+      <span>Română</span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="../index.html#acasa" class="logo">
+      <span class="logo-symbol">ITS</span>
+      <span class="logo-text">
+        <strong>SISTEMUL FARMACEUTIC</strong>
+        <small>DE URMĂRIRE ȘI TRASABILITATE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigation" aria-expanded="false">&#9776;</button>
+
+    <nav class="navigation" id="navigation" aria-label="Navigare principală">
+      <a href="../index.html#acasa">Pagina principală</a>
+      <a href="noutati.html" aria-current="page" style="color: var(--green)">Noutăți</a>
+      <a href="despre-itc.html">Ce este ITS?</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="contact.html" class="nav-button">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">ITS &middot; ARHIVĂ ISTORICĂ</span>
+      <h1>Anunțuri și noutăți</h1>
+      <p>Arhiva informațiilor publicate despre sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS), organizată după tipul conținutului.</p>
+
+      <div class="archive-notice">
+        <strong>Despre această arhivă:</strong> materialele prezentate aici datează din perioada <strong>2012&ndash;2014</strong>. Datele afișate includ anul publicării. Acestea sunt informații istorice, nu actualizări curente ale sistemului.
+      </div>
+
+      <div class="section-jump">
+        <a href="#anunturi">Anunțuri</a>
+        <a href="#evenimente">Evenimente</a>
+        <a href="#articole">Articole</a>
+        <a href="#its-in-presa">ITS în presă</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ANUNȚURI -->
+    <section class="news-section" id="anunturi">
+      <div class="news-section-heading">
+        <h2>Anunțuri</h2>
+        <span class="news-count">7 materiale</span>
+      </div>
+      <p class="news-section-intro">
+        Textele de mai jos sunt rezumate în limba română. Pentru a citi anunțurile originale, accesați
+        <a href="https://its.technarts.com/news.php?Id=47" target="_blank" rel="noopener noreferrer">arhiva oficială de anunțuri TechN'arts &nearr;</a>.
+      </p>
+
+      <div class="news-list">
+
+        <article class="news-item">
+          <time class="news-date" datetime="2014-05-16"><strong>16</strong><span>MAI</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2014</span>
+            <h3>Mesaj de condoleanțe</h3>
+            <p>Transmitem sincere condoleanțe familiilor și apropiaților celor care și-au pierdut viața în accidentul minier din Soma. Le dorim însănătoșire grabnică persoanelor rănite și salvarea cât mai rapidă a minerilor rămași blocați.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-03-20"><strong>20</strong><span>MAR</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2013</span>
+            <h3>A fost aprobat protocolul ITS dintre guvernele Turciei și Egiptului</h3>
+            <p>Anunțul informează despre aprobarea protocolului dintre Guvernul Republicii Turcia și Guvernul Republicii Arabe Egipt. Textul original face referire la data de 19 martie 2013.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-01-16"><strong>16</strong><span>IAN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2013</span>
+            <h3>Modificări ale regulamentului privind ambalarea și etichetarea medicamentelor de uz uman</h3>
+            <p>Sunt prezentate modificările regulamentului privind ambalarea și etichetarea medicamentelor de uz uman, publicate în Monitorul Oficial al Turciei la 15 ianuarie 2013, numărul 28529.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-12-11"><strong>11</strong><span>DEC</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2012</span>
+            <h3>Clarificări privind problema MEDULA în legătură cu ITS</h3>
+            <p>În urma sesizărilor că unele farmacii nu puteau efectua interogări prin MEDULA și a afirmațiilor privind inaccesibilitatea serverelor ITS, instituția a considerat necesară publicarea unei explicații. Textul disponibil este un extras și nu conține întregul comunicat.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-09-26"><strong>26</strong><span>SEP</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2012</span>
+            <h3>Modificări ale serviciilor web PTS</h3>
+            <p>Odată cu introducerea celei de-a doua etape, volumul de utilizare a serviciului de transfer al coletelor (PTS) a crescut. Pentru reducerea sarcinii și prevenirea problemelor, serviciile web PTS au fost revizuite. Textul disponibil este un extras din anunțul original.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-08-29"><strong>29</strong><span>AUG</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2012</span>
+            <h3>La mulți ani de Ziua Victoriei, 30 august!</h3>
+            <p>Mesaj de sărbătoare publicat cu ocazia Zilei Victoriei din Turcia, celebrată anual la 30 august.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-08-01"><strong>01</strong><span>AUG</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ANUNȚ &middot; 2012</span>
+            <h3>Portalul ITS este disponibil în limba engleză</h3>
+            <p>Portalul ITS a fost pregătit și publicat în limba engleză. Potrivit anunțului original, unele documente și anunțuri mai vechi nu erau încă disponibile în engleză și urmau să fie completate ulterior.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EVENIMENTE -->
+    <section class="news-section" id="evenimente">
+      <div class="news-section-heading">
+        <h2>Evenimente</h2>
+        <span class="news-count">8 evenimente &middot; 2013&ndash;2014</span>
+      </div>
+      <p class="news-section-intro">
+        Textele de mai jos sunt rezumate în limba română. Pentru a citi articolele originale despre evenimente, accesați
+        <a href="https://its.technarts.com/events.php?Id=129" target="_blank" rel="noopener noreferrer">arhiva oficială de evenimente TechN'arts &nearr;</a>.
+      </p>
+
+      <div class="news-list">
+
+        <article class="news-item">
+          <time class="news-date" datetime="2014-02-18"><strong>18</strong><span>FEB</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2014</span>
+            <h3>Interviu TechN'arts publicat pe Pharma IQ</h3>
+            <p>Pharma IQ, o comunitate internațională online dedicată industriei farmaceutice, l-a intervievat pe Taha Yaycı, directorul general al TechN'arts, despre serializarea și trasabilitatea produselor farmaceutice. Interviul a fost inclus într-un raport al industriei publicat după evenimentul Pharmaceutical Packaging and Labelling Summit.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-07-31"><strong>31</strong><span>IUL</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS la reuniunea California Board of Pharmacy</h3>
+            <p>La 31 iulie 2013, Taha Yaycı, directorul general al Nart Informatics &ndash; TechN'arts, a participat prin internet la reuniunea publică a California Board of Pharmacy și a prezentat sistemul turcesc de urmărire și trasabilitate a medicamentelor.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-06-26"><strong>26</strong><span>IUN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS în Elveția</h3>
+            <p>În perioada 26&ndash;28 iunie 2013, la Pharmaceutical Packaging and Labelling Summit din Basel, Elveția, TechN'arts a prezentat sistemul turcesc ITS și experiența acumulată în urmărirea și trasabilitatea medicamentelor.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-06-24"><strong>24</strong><span>IUN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS la reuniunea California Board of Pharmacy privind e-Pedigree</h3>
+            <p>La 24 iunie 2013, Taha Yaycı, directorul general al TechN'arts, a participat prin internet la reuniunea comitetului California Board of Pharmacy dedicată e-Pedigree și a prezentat experiența sistemului ITS.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-06-04"><strong>04</strong><span>IUN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>Întâlnire ITS cu delegația Ministerului Sănătății din Egipt</h3>
+            <p>La 4 iunie 2013, la Ankara, delegați din cadrul Ministerului Sănătății din Egipt, inclusiv reprezentanți ai sectorului farmaceutic și ai structurilor de inspecție a farmaciilor și depozitelor, au vizitat Turcia și sistemul ITS.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-04-10"><strong>10</strong><span>APR</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS în Libia</h3>
+            <p>În perioada 8&ndash;9 aprilie 2013, la Tripoli, Libia, Taha Yaycı și reprezentanții Nart Informatics (TechN'arts) au prezentat sistemul ITS și experiența acumulată în implementarea sa. Au avut loc întâlniri cu reprezentanți ai sectorului farmaceutic libian.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-02-28"><strong>28</strong><span>FEB</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS la Cold Chain &amp; Temperature Management Summit</h3>
+            <p>În perioada 25&ndash;28 februarie 2013, la Toronto, Canada, TechN'arts a prezentat sistemul de urmărire și trasabilitate a medicamentelor (ITS) la cea de-a 11-a ediție a summitului dedicat lanțului frigorific și gestionării temperaturii.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2013-01-14"><strong>14</strong><span>IAN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; EVENIMENT &middot; 2013</span>
+            <h3>TechN'arts a prezentat ITS în Qatar</h3>
+            <p>TechN'arts a prezentat sistemul ITS în Qatar. Potrivit fragmentului disponibil, prezentarea a avut loc la Doha, iar Taha Yaycı a participat în calitate de director general al TechN'arts și coordonator al proiectului ITS. Data exactă a prezentării trebuie verificată în articolul original.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ARTICOLE -->
+    <section class="news-section" id="articole">
+      <div class="news-section-heading">
+        <h2>Articole</h2>
+        <span class="news-count">5 articole &middot; 2012</span>
+      </div>
+      <p class="news-section-intro">Articole tehnice și informații istorice despre sistemul de urmărire a medicamentelor (ITS).</p>
+
+      <div class="news-list">
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-06-11"><strong>11</strong><span>IUN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ARTICOL &middot; 2012</span>
+            <h3>Serviciul de transfer al ambalajelor (PTS)</h3>
+            <p>Sistemul ITS funcționează pe baza unităților individuale de medicamente. Transferurile comerciale se realizează însă prin unități de transport, precum pachete, cutii și paleți. Acest lucru a creat necesitatea schimbului de informații despre unitățile de transport.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-06-11"><strong>11</strong><span>IUN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ARTICOL &middot; 2012</span>
+            <h3>Tranzacțiile produselor în cadrul etapelor 1 și 2</h3>
+            <p>Sistemul de urmărire a medicamentelor a fost structurat în două etape, pentru a facilita tranziția și a reduce dificultățile potențiale pentru participanții la sistem.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-04-18"><strong>18</strong><span>APR</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ARTICOL &middot; 2012</span>
+            <h3>Serviciul web pentru referința codurilor de eroare</h3>
+            <p>Acest serviciu web a fost conceput pentru ca participanții să poată primi mesaje de eroare atunci când notificările transmise către ITS sunt incorecte sau incompatibile cu operațiunile efectuate. Scopul este de a facilita identificarea și corectarea problemelor.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-04-17"><strong>17</strong><span>APR</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ARTICOL &middot; 2012</span>
+            <h3>Serviciul web de verificare a produselor</h3>
+            <p>Spre deosebire de alte servicii, serviciul de verificare a produselor nu returnează codul „00000” ca rezultat de succes. Pentru diferitele stări ale produselor sunt definite coduri de eroare sau mesaje de avertizare.</p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <time class="news-date" datetime="2012-01-12"><strong>12</strong><span>IAN</span></time>
+          <div class="news-copy">
+            <span class="resource-tag">ITS &middot; ARTICOL &middot; 2012</span>
+            <h3>Utilizarea mai multor conturi de utilizator</h3>
+            <p>Echipa tehnică ITS a dezvoltat funcționalități care permit participanților să înregistreze mai mulți utilizatori și să stabilească nivelurile de autorizare ale acestora în sistem.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ITS ÎN PRESĂ -->
+    <section class="news-section" id="its-in-presa">
+      <div class="news-section-heading">
+        <h2>ITS în presă</h2>
+        <span class="news-count">Arhivă în curs de completare</span>
+      </div>
+      <div class="empty-category">
+        Această secțiune va fi completată cu articolele din presă de pe site-ul original, împreună cu titlul, sursa și data completă.
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>&copy; 2013 TechN'arts &ndash; an de referință din textul original.</span>
+    <span>TechN'arts: Tehnologia este o artă.</span>
+    <a href="nota-juridica.html">Notă juridică</a>
+  </div>
+  <div id="legal" class="legal-note">
+    Această pagină este o reconstrucție neoficială în limba română și nu reprezintă portalul oficial ITS.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

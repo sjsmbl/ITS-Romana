@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ghid privind standardul XML PTS: structură, elemente, tipuri de acțiuni și schema XSD.">
+<title>Standardul XML PTS | ITS</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Page-specific styles; they reuse the variables and patterns from styles.css */
+  .page-hero {
+    padding: 60px 0 55px;
+    background:
+      radial-gradient(ellipse at 90% 30%, rgba(29, 174, 135, 0.11), transparent 38%),
+      linear-gradient(135deg, #f5fbf8 0%, #ffffff 56%, #eef8f4 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-back {
+    display: inline-flex;
+    margin-bottom: 22px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .doc-back:hover { color: var(--green-dark); }
+  .page-hero h1 {
+    max-width: 820px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 3.8vw, 44px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+  }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .doc-meta span {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .doc-meta strong { color: var(--navy); }
+
+  .doc-page { padding: 50px 0 80px; }
+  .doc-content {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+  .doc-content h2 {
+    margin: 48px 0 14px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+  }
+  .doc-content h3 {
+    margin: 30px 0 10px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+  }
+  .doc-content h4 {
+    margin: 22px 0 8px;
+    color: var(--green-dark);
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .doc-content p { margin-bottom: 14px; }
+  .doc-content ul { margin: 0 0 16px 22px; }
+  .doc-content li { margin-bottom: 6px; }
+  .doc-content a:not(.button) { color: var(--green); font-weight: 700; }
+  .doc-content a:not(.button):hover { text-decoration: underline; }
+  .doc-content code {
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #eef5f2;
+    color: var(--green-dark);
+    font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    font-size: 13px;
+  }
+  .doc-note {
+    margin: 0 0 10px;
+    padding: 18px 22px;
+    border: 1px solid #cce5da;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-light);
+    color: var(--navy);
+    font-size: 14px;
+  }
+  .doc-note h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+  .doc-note p:last-child { margin-bottom: 0; }
+  .doc-table-wrap {
+    margin: 0 0 22px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .doc-table-wrap table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.6; }
+  .doc-table-wrap th,
+  .doc-table-wrap td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .doc-table-wrap th { background: var(--green-light); color: var(--navy); font-weight: 700; white-space: nowrap; }
+  .doc-table-wrap tr:last-child td { border-bottom: 0; }
+  .doc-actions { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 600px) {
+    .page-hero { padding: 40px 0 38px; }
+    .doc-page { padding: 34px 0 60px; }
+    .doc-content { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-content">
+    <span>Sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS)</span>
+    <div class="language-switch">
+      <a href="#">Türkçe</a>
+      <a href="#">English</a>
+      <span>Română</span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="../index.html#acasa" class="logo">
+      <span class="logo-symbol">ITS</span>
+      <span class="logo-text">
+        <strong>SISTEMUL FARMACEUTIC</strong>
+        <small>DE URMĂRIRE ȘI TRASABILITATE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigation" aria-expanded="false">&#9776;</button>
+
+    <nav class="navigation" id="navigation" aria-label="Navigare principală">
+      <a href="../index.html#acasa">Pagina principală</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre-itc.html">Ce este ITS?</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="contact.html" class="nav-button">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="doc-back" href="../index.html#documentatie">&larr; Înapoi la documentație</a>
+      <span class="eyebrow" style="display:block">DOCUMENTAȚIE &middot; STANDARD XML PTS</span>
+      <h1>Ghid privind standardul XML PTS</h1>
+      <div class="doc-meta">
+        <span><strong>Document original:</strong> PTS XML Standard Guideline</span>
+        <span><strong>Versiunea:</strong> 2.0</span>
+        <span><strong>Data:</strong> 17 septembrie 2012</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-page">
+    <div class="container">
+      <article class="doc-content">
+
+        <p><strong>Organizație menționată în sursă:</strong> Agenția Turcă pentru Medicamente și Dispozitive Medicale, Departamentul Sistemului de Urmărire și Trasabilitate a Produselor Farmaceutice.</p>
+
+        <div class="doc-note">
+          <h2>Notă privind documentul</h2>
+          <p>Pagina prezintă în limba română conținutul tehnic principal al ghidului original. Denumirile câmpurilor XML și valorile tehnice sunt păstrate în forma originală. Documentul-sursă conține o notificare juridică privind drepturile TechN'arts; această traducere nu înlocuiește documentul original și trebuie utilizată în limitele permisiunii acordate.</p>
+        </div>
+
+        <h2>1. Introducere</h2>
+        <h3>1.1. Rezumat</h3>
+        <p>După introducerea sistemului ITS, a apărut necesitatea gestionării transferurilor de produse, în special între producători și distribuitorii angro de medicamente. ITS urmărește unitățile individuale de medicamente, ceea ce necesită asocierea acestora cu unitățile de transport, precum pachete, cutii și paleți.</p>
+        <p>Participanții din sector au solicitat o structură centrală, acceptată de toate părțile, pentru gestionarea acestor transferuri. În urma unui atelier organizat la 13 decembrie 2010 de Nart Bilişim Hizmetleri (TechN'arts), împreună cu participanții relevanți, a fost stabilit formatul XML destinat schimbului de date.</p>
+
+        <h3>1.2. Informații generale</h3>
+        <p>Package Transfer System (PTS) a fost conceput pentru transmiterea electronică a informațiilor despre transferurile fizice dintre participanții lanțului de distribuție. Utilizarea PTS este obligatorie atunci când participantul destinatar o solicită. Informațiile despre transfer sunt schimbate în formatul definit de acest ghid, pe lângă acordurile bilaterale dintre participanți.</p>
+        <p>Scopul ghidului este definirea standardului de fișier utilizat de PTS.</p>
+
+        <h3>1.3. Public țintă și exemple</h3>
+        <p>Ghidul se adresează echipelor de dezvoltare software ale participanților. Documentul original indică exemple XML la: <a href="https://github.com/ilactakipsistemi" target="_blank" rel="noopener noreferrer">github.com/ilactakipsistemi</a>.</p>
+
+        <h2>2. Structura generală XSD</h2>
+        <p>XSD (XML Schema Definition) descrie structura permisă a documentului XML. Schema definește elementele, tipurile de date, câmpurile obligatorii și regulile de validare. Consultați schema corespunzătoare versiunii utilizate înainte de a genera sau valida fișiere PTS.</p>
+
+        <h2>3. Explicații privind XSD</h2>
+        <h3>3.1. Locația și utilizarea XSD</h3>
+        <p>Standardele XML pentru PTS sunt definite în schema XSD. Schema trebuie utilizată atât la generarea documentelor XML, cât și la validarea lor. Lipsa validării poate produce erori atunci când destinatarul verifică fișierul.</p>
+        <p>Adresa indicată în documentul original din 2012: <a href="http://its.saglik.gov.tr/pts_xml_schema_v_2_0.xsd" target="_blank" rel="noopener noreferrer">schema XSD PTS versiunea 2.0</a>.</p>
+
+        <h3>3.2. Tipuri simple</h3>
+        <h4>actionType</h4>
+        <p>Definește valorile permise pentru câmpul <code>action</code>. Acesta trebuie să conțină una dintre literele enumerate în anexa privind tipurile de acțiuni.</p>
+        <h4>glnType</h4>
+        <p>Identifică un Global Location Number (GLN). Conform ghidului, valoarea trebuie să conțină exact 13 cifre.</p>
+        <h4>gtinType</h4>
+        <p>Identifică un Global Trade Item Number (GTIN), adică numărul de identificare al produsului. Conform ghidului, valoarea trebuie să conțină exact 14 cifre.</p>
+        <h4>serialNumberType</h4>
+        <p>Este utilizat pentru numere de serie și numere de lot. Schema XSD din anexă permite între 1 și 20 de caractere formate din cifre și litere latine majuscule (A-Z). Descrierea din textul original conține o limită diferită; pentru validare trebuie consultată schema XSD efectiv utilizată.</p>
+
+        <h3>3.3. Tipuri complexe</h3>
+        <h4>carrierType</h4>
+        <ul>
+          <li><code>carrierLabel</code>: identificatorul cu cod de bare al unității de transport; câmp obligatoriu, cu 20 de caractere conform schemei.</li>
+          <li><code>containerType</code>: câmp opțional care indică tipul unității de ambalare.</li>
+          <li><code>productList</code>: lista produselor conținute în unitatea respectivă.</li>
+          <li><code>carrier</code>: permite o structură imbricată pentru unități de transport.</li>
+        </ul>
+        <p>Codurile pentru <code>containerType</code> descrise în ghid sunt:</p>
+        <ul>
+          <li><code>P</code> &mdash; palet;</li>
+          <li><code>C</code> &mdash; cutie de transport;</li>
+          <li><code>S</code> &mdash; folie sau pachet grupat;</li>
+          <li><code>B</code> &mdash; cutie aflată într-o cutie de transport;</li>
+          <li><code>E</code> &mdash; pachet mic grupat.</li>
+        </ul>
+        <p>Pentru transferurile de cantități mici, ghidul indică utilizarea valorii formate din 20 de zerouri pentru <code>carrierLabel</code> atunci când unitatea nu are SSCC.</p>
+
+        <h4>productListType</h4>
+        <ul>
+          <li><code>gtin</code>: codul GTIN al produsului; obligatoriu.</li>
+          <li><code>serialNumber</code>: numărul de serie al unității individuale; este necesar cel puțin un număr de serie.</li>
+          <li><code>lotNumber</code>: numărul lotului; obligatoriu.</li>
+          <li><code>expirationDate</code>: data expirării în formatul de dată XML; obligatoriu.</li>
+          <li><code>productionDate</code>: data fabricației; opțional.</li>
+          <li><code>poNumber</code>: numărul comenzii de achiziție; opțional.</li>
+        </ul>
+
+        <h3>3.4. Elemente principale</h3>
+        <ul>
+          <li><code>sender</code>: GLN-ul participantului care trimite pachetul.</li>
+          <li><code>receiver</code>: GLN-ul destinatarului transferului; obligatoriu, 13 cifre.</li>
+          <li><code>action</code>: acțiunea pe care destinatarul trebuie să o efectueze pentru produsele primite.</li>
+          <li><code>shipTo</code>: destinația de livrare; opțional, maximum 20 de caractere conform descrierii.</li>
+          <li><code>documentNumber</code>: numărul documentului de transfer; opțional, maximum 20 de caractere.</li>
+          <li><code>documentDate</code>: data documentului în format XML Date; opțional.</li>
+          <li><code>note</code>: câmp opțional pentru note, cu maximum 50 de caractere.</li>
+          <li><code>version</code>: versiunea standardului XML PTS; opțional. Pentru acest ghid, valoarea este <code>2.0</code>.</li>
+          <li><code>carrier</code>: conține identificatorii unităților de transport și produsele asociate.</li>
+        </ul>
+        <p>Valorile datei trebuie să respecte tipul XML Date; alte formate pot duce la eșecul validării.</p>
+
+        <h2>4. Anexa 1 &mdash; Tipurile de acțiuni</h2>
+        <p>Câmpul <code>action</code> indică operațiunea pe care destinatarul trebuie să o efectueze în ITS sau în procesul de transfer.</p>
+        <div class="doc-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Cod</th><th>Acțiune</th><th>Semnificație</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>P</code></td><td>Achiziție</td><td>Destinatarul înregistrează achiziția produselor.</td></tr>
+              <tr><td><code>S</code></td><td>Expediere</td><td>Destinatarul efectuează notificarea de expediere.</td></tr>
+              <tr><td><code>C</code></td><td>Anularea expedierii</td><td>Destinatarul procesează produsele prin notificarea de anulare a expedierii.</td></tr>
+              <tr><td><code>R</code></td><td>Retur</td><td>Destinatarul înregistrează returnarea produselor.</td></tr>
+              <tr><td><code>D</code></td><td>Dezactivare</td><td>Destinatarul dezactivează produsele prin notificarea corespunzătoare.</td></tr>
+              <tr><td><code>M</code></td><td>Producție</td><td>Destinatarul înregistrează fabricarea produselor.</td></tr>
+              <tr><td><code>I</code></td><td>Import</td><td>Destinatarul înregistrează produsele importate prin notificarea de producție prevăzută de sistem.</td></tr>
+              <tr><td><code>X</code></td><td>Export</td><td>Destinatarul înregistrează exportul produselor.</td></tr>
+              <tr><td><code>O</code></td><td>Consum</td><td>Destinatarul, de exemplu un spital, înregistrează consumul produselor.</td></tr>
+              <tr><td><code>N</code></td><td>Informare</td><td>Destinatarul este informat despre produsele respective.</td></tr>
+              <tr><td><code>T</code></td><td>Transfer de proprietate</td><td>Destinatarul înregistrează transferul produselor.</td></tr>
+              <tr><td><code>L</code></td><td>Anularea transferului de proprietate</td><td>Destinatarul procesează anularea transferului de proprietate.</td></tr>
+              <tr><td><code>F</code></td><td>Transfer în afara ITS</td><td>Indică un transfer de produse care nu necesită o notificare ITS, de exemplu în cazul unui operator logistic.</td></tr>
+              <tr><td><code>K</code></td><td>Anularea transferului în afara ITS</td><td>Indică anularea transferului de produse care nu necesită notificare ITS.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Exemplele din ghid ilustrează situații posibile, dar utilizarea acțiunilor nu se limitează la exemplele respective.</p>
+
+        <h2>5. Anexa 2 &mdash; Schema XSD</h2>
+        <p>Documentul original include schema XSD completă, care definește structura elementului <code>transfer</code>, tipurile <code>carrierType</code> și <code>productListType</code>, precum și limitările pentru <code>actionType</code>, <code>glnType</code>, <code>gtinType</code> și <code>serialNumberType</code>. Pentru implementare, folosiți fișierul XSD original corespunzător versiunii sistemului; nu construiți o schemă nouă doar pe baza rezumatului de mai sus.</p>
+
+        <h2>Istoricul versiunilor</h2>
+        <ul>
+          <li>Versiunea 1.0 &mdash; prima versiune, 14 februarie 2012.</li>
+          <li>Versiunea 1.1 &mdash; 6 septembrie 2012: adăugarea câmpului <code>version</code> și înlocuirea câmpului <code>billTo</code> cu <code>shipTo</code>.</li>
+          <li>Versiunile ulterioare au actualizat <code>containerType</code>, <code>actionType</code>, <code>carrierLabel</code>, tipurile XSD și formatul documentului.</li>
+          <li>Versiunea 2.0 &mdash; 17 septembrie 2012: actualizarea schemei XSD și a explicațiilor asociate.</li>
+        </ul>
+
+        <div class="doc-note">
+          <h2>Notă finală</h2>
+          <p>Acest conținut este o traducere și sinteză informativă a ghidului din 2012, nu o garanție privind regulile actuale ale PTS. Pentru integrare tehnică, consultați schema originală și documentația aplicabilă versiunii utilizate.</p>
+        </div>
+
+        <div class="doc-actions">
+          <a href="../index.html#documentatie" class="button button-primary">Înapoi la documentație</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>&copy; 2013 TechN'arts &ndash; an de referință din textul original.</span>
+    <span>TechN'arts: Tehnologia este o artă.</span>
+    <a href="nota-juridica.html">Notă juridică</a>
+  </div>
+  <div id="legal" class="legal-note">
+    Această pagină este o reconstrucție neoficială în limba română și nu reprezintă portalul oficial ITS.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

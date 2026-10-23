@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Principiile de funcționare ale sistemului PTS: comunicare, servicii, integritatea datelor și notificări.">
+<title>Principii de funcționare PTS | ITS</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Page-specific styles; they reuse the variables and patterns from styles.css */
+  .page-hero {
+    padding: 60px 0 55px;
+    background:
+      radial-gradient(ellipse at 90% 30%, rgba(29, 174, 135, 0.11), transparent 38%),
+      linear-gradient(135deg, #f5fbf8 0%, #ffffff 56%, #eef8f4 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-back {
+    display: inline-flex;
+    margin-bottom: 22px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .doc-back:hover { color: var(--green-dark); }
+  .page-hero h1 {
+    max-width: 820px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 3.8vw, 44px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+  }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .doc-meta span {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .doc-meta strong { color: var(--navy); }
+
+  .doc-page { padding: 50px 0 80px; }
+  .doc-content {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+  .doc-content h2 {
+    margin: 44px 0 12px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(21px, 2.5vw, 26px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+  .doc-content h2:first-child { margin-top: 0; }
+  .doc-content p { margin-bottom: 14px; }
+  .doc-content ul { margin: 0 0 16px 22px; }
+  .doc-content li { margin-bottom: 6px; }
+  .doc-content code {
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #eef5f2;
+    color: var(--green-dark);
+    font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    font-size: 13px;
+  }
+  .doc-note {
+    margin: 36px 0 0;
+    padding: 18px 22px;
+    border: 1px solid #cce5da;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-light);
+    color: var(--navy);
+    font-size: 14px;
+  }
+  .doc-note h2 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+  .doc-note p:last-child { margin-bottom: 0; }
+  .doc-actions { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 600px) {
+    .page-hero { padding: 40px 0 38px; }
+    .doc-page { padding: 34px 0 60px; }
+    .doc-content { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-content">
+    <span>Sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS)</span>
+    <div class="language-switch">
+      <a href="#">Türkçe</a>
+      <a href="#">English</a>
+      <span>Română</span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="../index.html#acasa" class="logo">
+      <span class="logo-symbol">ITS</span>
+      <span class="logo-text">
+        <strong>SISTEMUL FARMACEUTIC</strong>
+        <small>DE URMĂRIRE ȘI TRASABILITATE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigation" aria-expanded="false">&#9776;</button>
+
+    <nav class="navigation" id="navigation" aria-label="Navigare principală">
+      <a href="../index.html#acasa">Pagina principală</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre-itc.html">Ce este ITS?</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="contact.html" class="nav-button">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="doc-back" href="../index.html#documentatie">&larr; Înapoi la documentație</a>
+      <span class="eyebrow" style="display:block">DOCUMENTAȚIE &middot; PTS</span>
+      <h1>Principii de funcționare PTS</h1>
+      <div class="doc-meta">
+        <span><strong>Sursa:</strong> PTS Working Principles</span>
+        <span><strong>Versiunea:</strong> 2.0</span>
+        <span><strong>Data:</strong> 17 septembrie 2012</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc-page">
+    <div class="container">
+      <article class="doc-content">
+
+        <p>Traducere informativă în limba română.</p>
+
+        <h2>1. Scopul sistemului</h2>
+        <p>Sistemul ITS urmărește unitățile individuale de medicamente, în timp ce PTS facilitează transferul informațiilor despre expedițiile de produse ambalate între partenerii lanțului de distribuție.</p>
+
+        <h2>2. Comunicarea</h2>
+        <p>PTS utilizează servicii web pentru schimbul de date. Cererile și răspunsurile sunt transmise prin HTTP și SOAP. Autentificarea se realizează prin HTTP Basic Authentication, iar SSL poate fi folosit pentru securizarea conexiunii.</p>
+        <p>Datele pot fi transmise ca atașament MIME sau codificate Base64 în XML. Pachetele sunt comprimate în format ZIP folosind metoda Deflate și trebuie să respecte structura XML definită pentru PTS.</p>
+
+        <h2>3. Serviciile PTS</h2>
+        <ul>
+          <li><strong>Trimitere:</strong> expeditorul transmite pachetul destinat unui partener.</li>
+          <li><strong>Recepționare:</strong> destinatarul solicită pachetele adresate acestuia.</li>
+          <li>Serviciile pot utiliza modurile <code>asFile</code> sau <code>asStream</code>.</li>
+        </ul>
+        <p>În modul <code>asFile</code>, fiecare cerere trebuie să conțină un singur pachet. Expeditorul nu trebuie să își trimită pachetele proprii către sine, iar solicitările repetate trebuie evitate.</p>
+
+        <h2>4. Identificare și integritatea datelor</h2>
+        <p>Mesajele includ identificatorul destinatarului (GLN), <code>transferId</code> și, după caz, conținutul <code>fileStream</code>. Câmpul <code>md5Checksum</code> permite verificarea integrității fișierului recepționat. Documentul-sursă menționează că GLN-ul trebuie să conțină 13 cifre.</p>
+
+        <h2>5. Gestionarea erorilor</h2>
+        <p>Răspunsurile de eroare pot include <code>faultCode</code> și <code>faultMessage</code>, care identifică eroarea și descriu problema. Codul <code>21012</code> este menționat pentru situația în care un pachet a fost solicitat de peste 100 de ori.</p>
+
+        <h2>6. Notificările PTS</h2>
+        <p>Notificările PTS sunt distincte de notificările ITS, dar folosesc autentificarea ITS. Ele informează partenerii despre transferurile de pachete și sunt necesare atunci când destinatarul le solicită. Notificările au devenit relevante în faza a doua ITS, începând cu 1 ianuarie 2012.</p>
+
+        <h2>7. Context</h2>
+        <p>PTS a fost dezvoltat în urma unui atelier cu părțile interesate, organizat la 13 decembrie 2010, pentru a facilita schimbul de informații despre expedieri.</p>
+
+        <div class="doc-note">
+          <h2>Notă</h2>
+          <p>Documentul original datează din 2012. Această traducere este informativă și nu garantează că descrie funcționarea versiunii actuale a sistemului.</p>
+        </div>
+
+        <div class="doc-actions">
+          <a href="../index.html#documentatie" class="button button-primary">Înapoi la documentație</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>&copy; 2013 TechN'arts &ndash; an de referință din textul original.</span>
+    <span>TechN'arts: Tehnologia este o artă.</span>
+    <a href="nota-juridica.html">Notă juridică</a>
+  </div>
+  <div id="legal" class="legal-note">
+    Această pagină este o reconstrucție neoficială în limba română și nu reprezintă portalul oficial ITS.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

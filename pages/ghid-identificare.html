@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ghid privind identificarea și codificarea produselor medicamentoase în sistemul ITS.">
+<title>Ghid de identificare și codificare | ITS</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* Page-specific styles; they reuse the variables and patterns from styles.css */
+  .guide-hero {
+    padding: 60px 0 55px;
+    background:
+      radial-gradient(ellipse at 90% 30%, rgba(29, 174, 135, 0.11), transparent 38%),
+      linear-gradient(135deg, #f5fbf8 0%, #ffffff 56%, #eef8f4 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .guide-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .guide-back:hover { color: var(--green-dark); }
+  .guide-hero h1 {
+    max-width: 820px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 3.6vw, 42px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.2px;
+  }
+  .guide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .guide-meta span {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .guide-meta strong { color: var(--navy); }
+
+  .guide-page { padding: 50px 0 80px; }
+  .guide-content {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+  .guide-content h2 {
+    margin: 52px 0 16px;
+    padding-top: 8px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+  }
+  .guide-content h3 {
+    margin: 32px 0 10px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .guide-content h4 {
+    margin: 24px 0 8px;
+    color: var(--green-dark);
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .guide-content p { margin-bottom: 14px; }
+  .guide-content ul,
+  .guide-content ol {
+    margin: 0 0 16px 22px;
+  }
+  .guide-content li { margin-bottom: 6px; }
+  .guide-content ul ul { margin-top: 6px; margin-bottom: 6px; }
+  .guide-content img { max-width: 100%; height: auto; }
+
+  .guide-note {
+    margin: 0 0 30px;
+    padding: 18px 22px;
+    border: 1px solid #cce5da;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    background: var(--green-light);
+    color: var(--navy);
+    font-size: 14px;
+  }
+
+  .guide-toc {
+    margin: 0 0 10px;
+    padding: 24px 28px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: #fbfdfc;
+  }
+  .guide-toc strong {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+  }
+  .guide-toc ol { margin-bottom: 0; }
+  .guide-toc a { color: var(--green); font-weight: 600; }
+  .guide-toc a:hover { color: var(--green-dark); text-decoration: underline; }
+
+  .guide-table-wrap {
+    margin: 0 0 22px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .guide-table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .guide-table-wrap th,
+  .guide-table-wrap td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-table-wrap th {
+    background: var(--green-light);
+    color: var(--navy);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .guide-table-wrap tr:last-child td { border-bottom: 0; }
+
+  .guide-content pre,
+  .guide-content code {
+    font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  }
+  .guide-content code {
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #eef5f2;
+    color: var(--green-dark);
+    font-size: 13px;
+  }
+  .guide-content pre {
+    margin: 0 0 20px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    border-radius: 10px;
+    background: var(--navy);
+    color: #d8ebe5;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .guide-legal {
+    margin-top: 50px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fbfdfc;
+  }
+  .guide-legal summary {
+    padding: 16px 22px;
+    color: var(--navy);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .guide-legal div { padding: 0 22px 8px; font-size: 13px; color: var(--muted); }
+
+  .guide-footer-nav {
+    max-width: 860px;
+    margin: 50px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .guide-hero { padding: 40px 0 38px; }
+    .guide-page { padding: 34px 0 60px; }
+    .guide-content { font-size: 14px; }
+    .guide-toc { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-content">
+    <span>Sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS)</span>
+    <div class="language-switch">
+      <a href="#">Türkçe</a>
+      <a href="#">English</a>
+      <span>Română</span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="../index.html#acasa" class="logo">
+      <span class="logo-symbol">ITS</span>
+      <span class="logo-text">
+        <strong>SISTEMUL FARMACEUTIC</strong>
+        <small>DE URMĂRIRE ȘI TRASABILITATE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigation" aria-expanded="false">&#9776;</button>
+
+    <nav class="navigation" id="navigation" aria-label="Navigare principală">
+      <a href="../index.html#acasa">Pagina principală</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre-itc.html">Ce este ITS?</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="contact.html" class="nav-button">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="guide-hero">
+    <div class="container">
+      <a class="guide-back" href="../index.html#documentatie">&larr; Înapoi la documentație</a>
+      <span class="eyebrow" style="display:block">DOCUMENTAȚIE &middot; GHID DE IDENTIFICARE</span>
+      <h1>Ghid privind identificarea și codificarea produselor medicamentoase</h1>
+      <div class="guide-meta">
+        <span><strong>Document original:</strong> iulie 2012</span>
+        <span><strong>Versiunea:</strong> 1.5</span>
+        <span><strong>Data versiunii:</strong> 06.07.2012</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-page">
+    <div class="container">
+      <article class="guide-content">
+
+        <div class="guide-note">
+          Acest ghid este un document istoric privind regulile de identificare
+          și codificare a medicamentelor pentru sistemul turcesc ITS.
+          Cerințele descrise reflectă documentul din 2012 și nu trebuie
+          considerate automat reguli actuale.
+        </div>
+
+        <p>
+          <strong>GHID PRIVIND IMPLEMENTAREA IDENTIFICĂRII ȘI CODIFICĂRII CU CODURI DE BARE A MEDICAMENTELOR DE UZ UMAN</strong><br>
+          Iulie 2012
+        </p>
+        <p>
+          Agenția Turcă pentru Medicamente și Dispozitive Medicale<br>
+          Departamentul Sistemului de Urmărire și Trasabilitate a Produselor Farmaceutice
+        </p>
+        <p>
+          Söğütözü Mahallesi, 2176 Sok. Nr. 5, P.K. 06520, Çankaya, Ankara<br>
+          Telefon: (312) 218 30 00<br>
+          Serviciu de asistență: (312) 218 34 50<br>
+          E-mail: its@titck.gov.tr
+        </p>
+
+        <details class="guide-legal">
+          <summary>Notă juridică</summary>
+          <div>
+            <p>În sensul Legii nr. 5846 privind operele intelectuale și artistice, acest document și întregul său conținut sunt considerate o „operă”. Documentul a fost elaborat de NART BİLİŞİM HİZMETLERİ Ltd. Şti. (denumită în continuare „TechN’arts”), care deține drepturile asupra acestei opere.</p>
+            <p>Toate drepturile de proprietate intelectuală asupra documentului și conținutului său, inclusiv drepturile patrimoniale precum dreptul de adaptare, reproducere, distribuire, reprezentare și difuzare prin radio, aparțin exclusiv TechN’arts.</p>
+            <p>Fără permisiunea scrisă expresă a TechN’arts, acest document sau orice parte a sa nu poate fi modificat, reprodus, trimis prin poștă, transferat, republicat, distribuit ori utilizat pentru crearea unor materiale derivate din original, integral sau parțial. Imaginile copiate din orice parte a documentului nu pot fi publicate pe nicio platformă.</p>
+            <p>TechN’arts este singura entitate autorizată să transmită terților drepturile patrimoniale asupra documentului și conținutului său, să acorde drepturi sau licențe de utilizare a acestora ori să le comercializeze.</p>
+            <p>Orice persoană care accesează acest document, direct sau indirect, acceptă în prealabil acești termeni, precum și consecințele juridice și sancțiunile aplicabile în cazul nerespectării lor. TechN’arts își rezervă toate drepturile legale în cazul încălcării oricăreia dintre aceste condiții.</p>
+          </div>
+        </details>
+
+        <h2 id="versiuni">Istoricul versiunilor</h2>
+        <div class="guide-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Versiune</th><th>Data</th><th>Observații</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1.5</td><td>06.07.2012</td><td>Formatul documentului a fost revizuit</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <nav class="guide-toc" aria-label="Cuprins">
+          <strong>Cuprins</strong>
+          <ol>
+            <li><a href="#s1">Obiectiv, domeniu de aplicare, temei juridic și definiții</a>
+              <ul>
+                <li><a href="#s1-1">1.1. Obiectiv și domeniu de aplicare</a></li>
+                <li><a href="#s1-2">1.2. Temei juridic</a></li>
+                <li><a href="#s1-3">1.3. Definiții</a></li>
+              </ul>
+            </li>
+            <li><a href="#s2">Identificarea și codificarea cu coduri de bare a medicamentelor de uz uman</a>
+              <ul>
+                <li><a href="#s2-1">2.1. Identificarea produselor</a></li>
+                <li><a href="#s2-2">2.2. Codificarea cu coduri de bare a produselor</a></li>
+              </ul>
+            </li>
+            <li><a href="#s3">Identificarea și codificarea cu coduri de bare a unităților de transport</a>
+              <ul>
+                <li><a href="#s3-1">3.1. Identificarea unităților de transport</a></li>
+              </ul>
+            </li>
+            <li><a href="#s4">Amplasarea și structura codurilor de bare</a>
+              <ul>
+                <li><a href="#s4-1">4.1. Amplasare</a></li>
+                <li><a href="#s4-2">4.2. Structura codurilor de bare</a></li>
+                <li><a href="#s4-3">4.3. Informații lizibile pentru oameni</a></li>
+                <li><a href="#s4-4">4.4. Aplicare</a></li>
+              </ul>
+            </li>
+            <li><a href="#s5">Alte reguli</a>
+              <ul>
+                <li><a href="#s5-1">5.1. Identificarea locațiilor</a></li>
+              </ul>
+            </li>
+            <li><a href="#s6">Anexe</a>
+              <ul>
+                <li><a href="#s6-1">6.1. Exemple de etichete</a></li>
+              </ul>
+            </li>
+          </ol>
+        </nav>
+
+        <!-- 1 -->
+        <h2 id="s1">1. Obiectiv, domeniu de aplicare, temei juridic și definiții</h2>
+
+        <h3 id="s1-1">1.1. Obiectiv și domeniu de aplicare</h3>
+        <p>Obiectivul acestui ghid este de a stabili principiile referitoare la identificarea și codificarea cu coduri de bare a medicamentelor de uz uman, în scopul urmăririi medicamentelor.</p>
+        <p>În acest scop, ghidul cuprinde informațiile relevante pentru generarea codurilor de bare și imprimarea acestora.</p>
+
+        <h3 id="s1-2">1.2. Temei juridic</h3>
+        <p>Prezentul ghid a fost elaborat în conformitate cu articolul 19 din „Regulamentul privind ambalarea și etichetarea medicamentelor de uz uman”, publicat în Monitorul Oficial la data de 12.08.2005, cu numărul 25904.</p>
+
+        <h3 id="s1-3">1.3. Definiții</h3>
+        <p>În sensul prezentului ghid, se aplică următorii termeni:</p>
+        <ul>
+          <li><strong>Ministerul:</strong> Ministerul Sănătății al Republicii Turcia.</li>
+          <li><strong>Simbolistica codului de bare:</strong> metoda utilizată pentru codificarea și decodificarea informațiilor dintr-un cod de bare, de exemplu EAN-13, GS1-128 sau ITF-14.</li>
+          <li><strong>Cod de bare:</strong> tehnologie alcătuită dintr-o combinație de linii cu lățimi diferite, spații și cifre, care permite transmiterea rapidă și exactă a datelor numerice sau alfabetice către calculatoare.</li>
+          <li><strong>Codificare cu coduri de bare:</strong> imprimarea datelor care pot fi citite de un cititor de coduri de bare, prin utilizarea unei simbolistici și a unei metode de imprimare adecvate, pe o suprafață specificată.</li>
+          <li><strong>Identificator principal:</strong> codul de bare.</li>
+          <li><strong>Direcția Generală:</strong> Direcția Generală pentru Produse Farmaceutice și Farmacie.</li>
+          <li><strong>Separator de grup:</strong> caracterul corespunzător funcției FNC1 („Function 1”) din simbolistica utilizată de sistemele compatibile cu GS1.</li>
+          <li><strong>GS1:</strong> organizație internațională cu sediul la Bruxelles, care dezvoltă standarde și soluții eficiente pentru lanțurile de aprovizionare și care este reprezentată în Turcia de TOBB-GS1 Türkiye.</li>
+          <li><strong>Identificator de aplicație GS1 (AI):</strong> elemente de identificare care indică semnificația datelor transmise sistemelor informatice prin intermediul cititorului de coduri de bare. De exemplu, 01 identifică GTIN, iar 17 identifică data expirării.</li>
+          <li><strong>GTIN (Global Trade Item Number — număr global de identificare a articolului comercial):</strong> număr care permite identificarea unică, la nivel mondial, a produselor comerciale și a cărui structură este definită de GS1.</li>
+          <li><strong>Identificator secundar:</strong> identificatorul în format DataMatrix, imprimat pe ambalajele medicamentelor, care conține informațiile a căror structură și al căror conținut sunt stabilite în prezentul ghid.</li>
+          <li><strong>Simbolistica DataMatrix:</strong> simbolistică bidimensională pentru coduri de bare, bazată pe standardul internațional „ISO/IEC 16022 — Specificația internațională a simbolisticii — Data Matrix ECC 200”.</li>
+          <li><strong>Cod farmaceutic:</strong> sistem de codificare bazat pe prezentarea și administrarea produsului farmaceutic.</li>
+        </ul>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <!-- 2 -->
+        <h2 id="s2">2. Identificarea și codificarea cu coduri de bare a medicamentelor de uz uman</h2>
+
+        <h3 id="s2-1">2.1. Identificarea produselor</h3>
+        <p>Pentru identificarea medicamentelor de uz uman se utilizează următorii identificatori.</p>
+
+        <h4>GTIN — numărul global de identificare a articolului comercial</h4>
+        <p>GTIN este un număr format din cel mult 14 cifre, utilizat pentru identificarea unică a produselor la nivel mondial.</p>
+        <p>În situațiile în care produsul comercial este vândut la un punct de vânzare cu amănuntul, numărul aplicat pe produs este reprezentat prin simbolistica EAN-13 și conține 13 cifre. În asemenea cazuri, cifra 0 se adaugă în fața numărului de 13 cifre pentru a forma un GTIN de 14 cifre.</p>
+        <p>GTIN este alcătuit din patru părți:</p>
+        <ol>
+          <li>Prefixul de țară GS1;</li>
+          <li>Prefixul companiei;</li>
+          <li>Numărul de referință al produsului;</li>
+          <li>Cifra de control.</li>
+        </ol>
+        <p>GTIN este stabilit de entitățile autorizate sau de deținătorii mărcilor, în conformitate cu regulile GS1 privind alocarea numerelor GTIN.</p>
+        <p>Utilizarea codului farmaceutic în GTIN este opțională. Dacă se dorește utilizarea unui cod farmaceutic, caracterele N9 și N10 pot fi utilizate în acest scop.</p>
+        <p>Identificatorul de aplicație GS1 pentru GTIN este 01.</p>
+        <p><strong>Structura GTIN:</strong></p>
+        <div class="guide-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Câmp</th><th>Descriere</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AI 01</td><td>Identificatorul de aplicație pentru GTIN</td></tr>
+              <tr><td>Cifra de extensie</td><td>Cifra utilizată la începutul structurii GTIN</td></tr>
+              <tr><td>Prefixul companiei GS1</td><td>Identifică entitatea căreia i-a fost alocat prefixul</td></tr>
+              <tr><td>Referința produsului</td><td>Identifică produsul comercial</td></tr>
+              <tr><td>Cifra de control</td><td>Permite verificarea corectitudinii numărului</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Exemplu de GTIN:</p>
+        <pre>01 08691234567890</pre>
+
+        <h4>Numărul de serie</h4>
+        <p>Numărul de serie este utilizat pentru identificarea fiecărei unități individuale a unui produs identificat prin GTIN.</p>
+        <p>Un număr de serie atribuit unui produs nu poate fi reutilizat pentru un alt exemplar al aceluiași tip de produs. Lungimea numărului de serie poate varia, iar acesta poate conține cel mult 20 de caractere alfanumerice.</p>
+        <p>Deținătorul autorizației de introducere pe piață stabilește un număr de serie unic.</p>
+        <p>Identificatorul de aplicație GS1 pentru numărul de serie este 21.</p>
+        <p>Exemplu:</p>
+        <pre>21 1323424679</pre>
+
+        <h4>Data expirării</h4>
+        <p>Data expirării indică ultima dată până la care produsul poate fi utilizat în condiții de siguranță.</p>
+        <p>Aceasta este reprezentată prin șase caractere numerice, în formatul YYMMDD:</p>
+        <ul>
+          <li>YY — anul, reprezentat prin două cifre;</li>
+          <li>MM — luna, reprezentată prin două cifre;</li>
+          <li>DD — ziua, reprezentată prin două cifre.</li>
+        </ul>
+        <p>De exemplu, în valoarea 120731, 12 indică anul 2012, 07 indică luna iulie, iar 31 indică ultima zi a lunii respective.</p>
+        <p>Dacă produsul fabricat are un termen de valabilitate mai mare de o lună, câmpul pentru zi poate conține ziua corespunzătoare ultimei zile a lunii sau valoarea 00.</p>
+        <p>De exemplu, dacă un produs fabricat la 12 iulie 2010 are un termen de valabilitate de doi ani, data expirării poate fi reprezentată prin 120731 sau 120700. În acest din urmă caz, software-ul interpretează valoarea 00 ca ultima zi a lunii respective.</p>
+        <p>Identificatorul de aplicație GS1 pentru data expirării este 17.</p>
+        <p>Exemplu:</p>
+        <pre>17 070119</pre>
+        <p>Această valoare indică data de 19 ianuarie 2007.</p>
+
+        <h4>Numărul lotului</h4>
+        <p>Numărul lotului este utilizat pentru a diferenția un lot de fabricație de celelalte loturi.</p>
+        <p>În noul sistem, numărul care era denumit anterior „număr de serie” pentru medicamentele de uz uman este denumit „număr de lot”.</p>
+        <p>Numărul lotului are lungime variabilă și poate conține cel mult 20 de caractere alfanumerice.</p>
+        <p>Identificatorul de aplicație GS1 pentru numărul lotului este 10.</p>
+        <p>Exemplu:</p>
+        <pre>10 X2512061322</pre>
+
+        <h4>Separatorul de grup (FNC1)</h4>
+        <p>Acest caracter corespunde funcției FNC1 din simbolistica utilizată de sistemele compatibile cu GS1.</p>
+        <p>Atunci când este plasat pe prima sau a doua poziție în simbolistica unui cod de bare, acesta indică tipul codului. În alte poziții, este utilizat ca separator între câmpuri.</p>
+        <p>Atunci când este utilizat drept separator între câmpuri într-un DataMatrix, caracterul este transmis aplicațiilor informatice sub forma caracterului ASCII 29.</p>
+        <p>Dacă un câmp cu lungime variabilă este urmat de un alt câmp, între cele două câmpuri se introduce separatorul de grup.</p>
+        <p>În codificarea produselor, câmpurile pentru numărul de serie și numărul lotului pot conține numai caracterele numerice 0–9 și următoarele caractere alfabetice majuscule:</p>
+        <pre>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</pre>
+        <p>Nu se utilizează simboluri speciale sau litere mici.</p>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <h3 id="s2-2">2.2. Codificarea cu coduri de bare a produselor</h3>
+        <ul>
+          <li>GTIN-ul (numărul de identificare a produsului) poate fi imprimat pe ambalaj folosind simbolistica EAN-13, ca identificator principal.</li>
+          <li>DataMatrix: toate informațiile de identificare prevăzute în secțiunea 2.1 sunt incluse pe ambalajul medicamentului de uz uman, sub forma unui identificator secundar în simbolistica DataMatrix.</li>
+        </ul>
+        <p>Conținutul noului DataMatrix aplicat pe produs trebuie să fie alcătuit după cum urmează:</p>
+        <ol>
+          <li><strong>Separatorul de grup:</strong> primul caracter al conținutului DataMatrix trebuie să fie întotdeauna separatorul de grup. Acesta indică faptul că datele sunt compatibile cu GS1 și nu este transmis de cititor către aplicațiile informatice ca un caracter obișnuit.</li>
+          <li><strong>GTIN:</strong> se adaugă GTIN-ul de 14 cifre, precedat de identificatorul de aplicație 01. Împreună, acestea ocupă 16 cifre.</li>
+          <li><strong>Numărul de serie:</strong> numărul de serie, stabilit de producător sau importator, este precedat de identificatorul 21. Acesta poate conține cel mult 20 de caractere, iar împreună cu identificatorul ocupă maximum 22 de caractere.</li>
+          <li><strong>Separatorul de grup:</strong> se adaugă după numărul de serie, deoarece acesta are lungime variabilă.</li>
+          <li><strong>Data expirării:</strong> se adaugă identificatorul 17, urmat de data formată din șase cifre. Împreună, acestea ocupă opt caractere.</li>
+          <li><strong>Numărul lotului:</strong> se adaugă identificatorul 10, urmat de numărul lotului, care poate conține cel mult 20 de caractere. Împreună, acestea ocupă maximum 22 de caractere.</li>
+        </ol>
+
+        <h4>Exemplu de conținut DataMatrix</h4>
+        <p>Se consideră următoarele date:</p>
+        <ul>
+          <li>GTIN: <code>08691234567890</code></li>
+          <li>Număr de serie: <code>1323424679</code></li>
+          <li>Data expirării: 19 ianuarie 2007</li>
+          <li>Număr de lot: <code>X2512061322</code></li>
+        </ul>
+        <p>Conținutul DataMatrix este reprezentat astfel, separatorul de grup fiind indicat prin marcajul explicativ <code>&lt;FNC1&gt;</code>:</p>
+        <pre>&lt;FNC1&gt;0108691234567890211323424679&lt;FNC1&gt;1707011910X2512061322</pre>
+        <p>Marcajul <code>&lt;FNC1&gt;</code> este folosit aici pentru a explica structura datelor. În conținutul efectiv al codului, separatorul este reprezentat prin caracterul corespunzător.</p>
+        <p>Datele transmise aplicației informatice după scanare sunt:</p>
+        <pre>0108691234567890211323424679&lt;GS&gt;1707011910X2512061322</pre>
+        <p>În acest exemplu, <code>&lt;GS&gt;</code> reprezintă separatorul de grup, transmis aplicației informatice sub forma caracterului ASCII 29.</p>
+
+        <p><strong>Alte reguli descrise în ghid:</strong></p>
+        <ul>
+          <li>Data expirării trebuie imprimată și în format lizibil pentru oameni, conform formatului indicat, într-o zonă separată a ambalajului, în conformitate cu prevederile regulamentului.</li>
+          <li>DataMatrix trebuie să respecte standardul ECC 200 și poate avea formă pătrată sau dreptunghiulară, conform standardului menționat. Forma este aleasă de producător sau importator.</li>
+          <li>Dacă produsul are deja un număr GTIN compatibil cu GS1 în țara în care este fabricat, acesta poate fi utilizat după declararea sa către Minister.</li>
+        </ul>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <!-- 3 -->
+        <h2 id="s3">3. Identificarea și codificarea cu coduri de bare a unităților de transport aferente medicamentelor de uz uman</h2>
+
+        <h3 id="s3-1">3.1. Identificarea unităților de transport</h3>
+        <p>Unitățile de transport sunt mijloace utilizate pentru transportarea și depozitarea produselor comerciale de-a lungul lanțului de aprovizionare. Acestea pot include cutii, șasiuri, paleți, butoaie, saci și pungi.</p>
+        <p>O unitate de transport poate conține un singur produs comercial sau mai multe produse comerciale diferite.</p>
+        <p>În sistemul GS1, unitățile de transport sunt definite și numerotate folosind SSCC (Serial Shipping Container Code — cod serial de identificare a unității logistice).</p>
+        <p>SSCC este reprezentat prin simbolistica GS1-128, utilizând identificatorul de aplicație 00.</p>
+        <p>Identificarea și numerotarea unităților de transport facilitează operațiunile logistice. De asemenea, automatizarea proceselor logistice poate crește eficiența și precizia operațiunilor.</p>
+        <p>De exemplu, numerele SSCC sunt imprimate sub formă de coduri de bare pe unitățile de transport și sunt incluse în înregistrările de schimb electronic de date dintre partenerii comerciali. Astfel, același număr SSCC permite asocierea operațiunilor logistice cu tranzacțiile electronice corespunzătoare.</p>
+        <p>SSCC, identificat prin identificatorul de aplicație 00, este utilizat pentru identificarea unică a unităților de transport. Fiecărei unități i se atribuie un număr serial distinct, care o identifică pe întreaga durată de utilizare.</p>
+        <p>Chiar dacă mai multe unități de transport conțin aceleași tipuri de produse, fiecărei unități trebuie să i se atribuie propriul număr SSCC.</p>
+        <p>Numărul SSCC este utilizat drept cheie de acces la informațiile stocate în sistemele informatice despre definiția și caracteristicile unității de transport.</p>
+        <p>Unele dintre aceste informații pot fi imprimate vizibil pe unitatea de transport și pot fi incluse în câmpurile standard ale înregistrărilor electronice de schimb de date. Exemplele includ greutatea, adresa de destinație, data expirării și numărul de ambalaje conținute.</p>
+
+        <h4>Structura SSCC</h4>
+        <p>SSCC este alcătuit din 18 cifre și include:</p>
+        <div class="guide-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Componentă</th><th>Descriere</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Cifra de extensie</td><td>Este stabilită în funcție de necesitățile interne ale companiei și poate indica tipul unității de transport.</td></tr>
+              <tr><td>Prefixul companiei GS1</td><td>Prefix alocat de organizația GS1 relevantă companiei care produce unitatea de transport.</td></tr>
+              <tr><td>Referința serială</td><td>Număr atribuit de producător pentru identificarea unității de transport.</td></tr>
+              <tr><td>Cifra de control</td><td>Cifră calculată prin metoda modulo 10.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Codul de bare SSCC se imprimă utilizând simbolistica GS1-128 și identificatorul de aplicație 00. Acest identificator indică faptul că datele care urmează reprezintă un SSCC cu lungime fixă de 18 cifre.</p>
+        <p>SSCC trebuie să fie prezent pe eticheta logistică GS1 a unității de transport.</p>
+        <p>Ghidul original include exemple de coduri SSCC și de etichete logistice GS1 pentru ilustrarea acestor cerințe.</p>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <!-- 4 -->
+        <h2 id="s4">4. Amplasarea și structura codurilor de bare</h2>
+
+        <h3 id="s4-1">4.1. Amplasare</h3>
+        <p>Regulile generale privind amplasarea celorlalte coduri de bare se aplică și codurilor de bare utilizate pentru medicamentele de uz uman.</p>
+        <p>Prin urmare:</p>
+        <ul>
+          <li>Atunci când este posibil, codul de bare și DataMatrix trebuie amplasate pe suprafețe diferite. Dacă acest lucru nu este posibil, trebuie păstrată o distanță de 1 cm între codul de bare și DataMatrix. În această zonă pot fi incluse informațiile lizibile pentru oameni referitoare la DataMatrix.</li>
+          <li>Poziția codului de bare și a DataMatrix pe ambalaj trebuie să faciliteze citirea acestora. Sistemul GS1 recomandă poziții similare pentru codurile de bare și DataMatrix care au forme și dimensiuni comparabile.</li>
+          <li>Codul de bare trebuie amplasat pe o suprafață plană.</li>
+          <li>Codul de bare nu trebuie plasat pe zonele în care ambalajul este pliat sau îmbinat.</li>
+          <li>Codul de bare și DataMatrix nu trebuie amplasate în zone în care se pot șifona sau deforma. Zona pe care sunt imprimate nu trebuie să fie îndoită sau pliată.</li>
+          <li>Codul de bare și DataMatrix nu trebuie acoperite de obiecte sau elemente grafice.</li>
+        </ul>
+
+        <h3 id="s4-2">4.2. Structura codurilor de bare</h3>
+        <p>Compania care deține produsul este responsabilă pentru asigurarea citirii corecte a codurilor de bare de către echipamentele automate de colectare a datelor.</p>
+        <p>La stabilirea cerințelor de calitate pentru codurile de bare și simbolurile DataMatrix trebuie avute în vedere următoarele standarde de verificare:</p>
+        <ul>
+          <li>Pentru codurile de bare liniare, precum EAN-13 și GS1-128: TS EN ISO/IEC 15416 — Tehnologia informației. Tehnici de identificare automată și captare a datelor. Specificații privind calitatea imprimării codurilor de bare liniare.</li>
+          <li>Pentru codurile bidimensionale, precum DataMatrix: TS EN ISO 15415 — Tehnologia informației. Tehnici de identificare automată și captare a datelor. Specificații privind calitatea imprimării simbolurilor bidimensionale.</li>
+        </ul>
+
+        <h3 id="s4-3">4.3. Informații lizibile pentru oameni</h3>
+        <p>Conținutul codurilor de bare aplicate pe medicamentele de uz uman trebuie imprimat într-o formă lizibilă pentru oameni:</p>
+        <ul>
+          <li>sub codul de bare, în cazul codurilor liniare;</li>
+          <li>lângă DataMatrix, în cazul codurilor bidimensionale.</li>
+        </ul>
+        <p>Identificatorii de aplicație trebuie indicați între paranteze pentru a facilita citirea. Totuși, aceste paranteze nu trebuie incluse în conținutul efectiv al DataMatrix.</p>
+        <p>În exemplele de etichete DataMatrix din ghid, parantezele din jurul identificatorilor de aplicație sunt utilizate numai pentru a facilita interpretarea vizuală și nu fac parte din datele codificate.</p>
+        <p>Informațiile lizibile pentru oameni trebuie să prezinte datele DataMatrix într-o formă coerentă și ușor de înțeles.</p>
+        <p>În cazul ambalajelor mici, din cauza spațiului limitat, data expirării și numărul lotului pot să nu fie incluse în zona de text asociată DataMatrix, cu condiția să fie indicate în alte zone ale ambalajului.</p>
+        <p>GTIN-ul și numărul de serie trebuie însă să fie afișate într-o poziție compatibilă cu datele din DataMatrix și să poată fi citite cu ușurință.</p>
+
+        <h3 id="s4-4">4.4. Aplicare</h3>
+        <p>Nu sunt impuse restricții specifice privind metoda de imprimare a codului de bare și a DataMatrix pe ambalaj. Deținătorii autorizațiilor sau permiselor de comercializare pot alege metoda cea mai potrivită pentru aplicația lor.</p>
+        <p>Totuși, în cazul aplicării DataMatrix prin etichetare pe ambalajul exterior al produsului, trebuie să se asigure că eticheta este distrusă dacă este îndepărtată sau că partea adezivă nu poate fi dezlipită fără a compromite integritatea etichetei.</p>
+        <p>Această cerință se aplică și situațiilor în care DataMatrix este adăugat prin modificarea unor etichete pregătite anterior.</p>
+        <p>Pentru toate aplicațiile de coduri de bare, calitatea imprimării trebuie să fie de minimum gradul D. În liniile de producție în serie, verificarea prin eșantionare este considerată suficientă pentru a confirma menținerea aceluiași nivel de calitate.</p>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <!-- 5 -->
+        <h2 id="s5">5. Alte reguli</h2>
+
+        <h3 id="s5-1">5.1. Identificarea locațiilor</h3>
+        <p>Pentru standardizarea identificării locațiilor și gruparea acestora într-un sistem comun de codificare, se utilizează un sistem recunoscut la nivel internațional.</p>
+        <p>Pentru codificarea locațiilor trebuie utilizat Global Location Number (GLN), stabilit de organizația GS1.</p>
+        <p>Crearea și utilizarea numerelor GLN trebuie să respecte regulile organizației GS1. Pentru informații suplimentare, ghidul face trimitere la documentul „GLN Allocation Rules” („Reguli de alocare a numerelor GLN”), publicat de sistemul GS1.</p>
+        <p>Atunci când este adecvat, numărul GLN poate fi aplicat pe documente sub forma unui cod de bare conform standardului EAN-13.</p>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <!-- 6 -->
+        <h2 id="s6">6. Anexe</h2>
+
+        <h3 id="s6-1">6.1. Exemple de etichete</h3>
+
+        <h4>6.1.1. Exemplu de etichetă de produs cu DataMatrix conform standardului</h4>
+        <p>Această figură din documentul original prezintă o etichetă de produs care utilizează un DataMatrix conform standardului.</p>
+        <p>Parantezele din exemplu sunt folosite pentru a facilita citirea de către oameni. Trebuie acordată atenție utilizării identificatorului de aplicație 01 pentru GTIN și includerii cifrei 0 la începutul GTIN-ului, acolo unde este necesar.</p>
+
+        <h4>6.1.2. Exemplu de etichetă de produs cu DataMatrix dreptunghiular conform standardului</h4>
+        <p>În acest exemplu, utilizatorul care dorește să imprime întregul cod într-un spațiu mai mic utilizează un DataMatrix dreptunghiular și afișează GTIN-ul și numărul de serie lângă acesta.</p>
+        <p>Forma dreptunghiulară a DataMatrix este recomandată în ghid pentru ambalajele care au suprafețe înclinate.</p>
+        <p>Exemplul arată că DataMatrix conține toate cele patru categorii de informații obligatorii, în timp ce data expirării și numărul lotului sunt indicate într-o altă zonă a ambalajului.</p>
+
+        <h4>6.1.3. Exemplu de etichetă DataMatrix pe trei rânduri</h4>
+        <p>Această figură prezintă un exemplu în care numărul lotului nu este inclus în informațiile lizibile pentru oameni, deoarece este afișat într-o altă zonă a ambalajului.</p>
+        <p>În acest caz, numărul lotului nu apare în textul lizibil asociat codului, dar DataMatrix conține toate cele patru categorii de informații.</p>
+
+        <h4>6.1.4. Exemplu de etichetă DataMatrix cu informații nestandardizate</h4>
+        <p>Această figură arată că informații suplimentare față de câmpurile standard pot fi incluse în zona lizibilă pentru oameni.</p>
+        <p>O astfel de abordare se poate utiliza atunci când data expirării și numărul lotului nu sunt indicate într-o altă zonă a ambalajului.</p>
+        <p>Aceste informații suplimentare pot fi utilizate cu condiția să fie redactate cât mai apropiat posibil de formatul standard. Ele trebuie să aibă caracter explicativ pentru informațiile lizibile pentru oameni și nu trebuie să conțină informații diferite.</p>
+        <p><em>Notă: Utilizarea culorii roșii în exemplu are doar rolul de a evidenția diferențele. Folosirea unei culori diferite nu este obligatorie.</em></p>
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+
+        <div class="guide-footer-nav">
+          <a class="guide-back" href="../index.html#documentatie">&larr; Înapoi la documentație</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>&copy; 2013 TechN'arts &ndash; an de referință din textul original.</span>
+    <span>TechN'arts: Tehnologia este o artă.</span>
+    <a href="nota-juridica.html">Notă juridică</a>
+  </div>
+  <div id="legal" class="legal-note">
+    Această pagină este o reconstrucție neoficială în limba română și nu reprezintă portalul oficial ITS.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ghid de administrare a sistemului İTS, versiunea 1.05 (iulie 2012) – prezentare în limba română.">
+<title>Ghid de administrare İTS | İTS România</title>
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+  /* Long-form document styles (built on the site's design tokens) */
+  .article-hero { padding: 70px 0 60px; }
+  .article-hero .hero-text { max-width: 820px; }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 26px;
+  }
+
+  .hero-meta span {
+    padding: 7px 14px;
+    border: 1px solid #dce8e3;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .article-wrap {
+    width: min(900px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .doc-section {
+    margin-bottom: 26px;
+    padding: 36px 40px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: #fff;
+    scroll-margin-top: 110px;
+  }
+
+  .doc-section h2 {
+    margin-bottom: 18px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.6px;
+  }
+
+  .doc-section h3 {
+    margin: 30px 0 10px;
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .doc-section h4 {
+    margin: 24px 0 8px;
+    color: var(--green-dark);
+    font-family: 'Manrope', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .doc-section p {
+    margin-bottom: 14px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+  }
+
+  .doc-section ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+
+  .doc-section li {
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  .doc-section li::marker { color: var(--green); }
+  .doc-section strong { color: var(--navy); }
+
+  .doc-section code {
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: 13px;
+  }
+
+  .doc-section a {
+    color: var(--green);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .doc-section a:hover { color: var(--green-dark); text-decoration: underline; }
+
+  .doc-note {
+    padding: 14px 18px;
+    border-left: 3px solid var(--green);
+    border-radius: 0 10px 10px 0;
+    background: var(--green-light);
+    font-size: 13px !important;
+  }
+
+  .doc-legal p,
+  .doc-legal li { font-size: 13px; line-height: 1.8; color: var(--muted); }
+
+  .contact-lines p { margin-bottom: 6px; }
+
+  /* Tables */
+  .table-wrap {
+    max-width: 100%;
+    margin: 16px 0 22px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .table-wrap table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .table-wrap th {
+    padding: 12px 16px;
+    background: var(--green-light);
+    color: var(--navy);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .table-wrap td {
+    padding: 11px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .table-wrap tbody tr:nth-child(even) td { background: #fbfdfc; }
+
+  .table-caption {
+    margin: 22px 0 -6px !important;
+    color: var(--navy) !important;
+    font-size: 13px !important;
+    font-weight: 700;
+  }
+
+  .doc-back {
+    display: inline-block;
+    margin: 0 0 24px;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 600px) {
+    .article-wrap { width: calc(100% - 32px); }
+    .doc-section { padding: 26px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container top-bar-content">
+    <span>Sistemul de urmărire și trasabilitate a produselor farmaceutice (ITS)</span>
+    <div class="language-switch">
+      <a href="#">Türkçe</a>
+      <a href="#">English</a>
+      <span>Română</span>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container nav-container">
+    <a href="../index.html" class="logo">
+      <span class="logo-symbol">ITS</span>
+      <span class="logo-text">
+        <strong>SISTEMUL FARMACEUTIC</strong>
+        <small>DE URMĂRIRE ȘI TRASABILITATE</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Deschide meniul" aria-controls="navigation" aria-expanded="false">&#9776;</button>
+
+    <nav class="navigation" id="navigation" aria-label="Navigare principală">
+      <a href="../index.html">Pagina principală</a>
+      <a href="noutati.html">Noutăți</a>
+      <a href="despre-itc.html">Ce este ITS?</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="contact.html" class="nav-button">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero article-hero">
+    <span class="hero-decoration decoration-one"></span>
+    <div class="container">
+      <div class="hero-text">
+        <span class="eyebrow">DOCUMENTAȚIE</span>
+        <h1>Ghid de administrare a sistemului <span>İTS</span></h1>
+        <p>Descrie funcționarea istorică a sistemului İTS, inclusiv notificările, transferul datelor, securitatea și procedurile de verificare, conform versiunii din 2012.</p>
+        <div class="hero-meta">
+          <span>Document original: iulie 2012</span>
+          <span>Versiunea 1.05</span>
+          <span>Data versiunii: 04.07.2012</span>
+        </div>
+        <div class="hero-actions">
+          <a href="../index.html#documentatie" class="button button-secondary">&larr; Înapoi la Documentație</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUPRINS -->
+  <section class="section-padding services" style="padding: 70px 0;">
+    <div class="container services-layout">
+      <div class="services-heading">
+        <span class="eyebrow">CUPRINS</span>
+        <h2>Pe această pagină</h2>
+        <p>Ghidul de administrare İTS, versiunea 1.05, împărțit în șapte capitole.</p>
+      </div>
+
+      <div class="service-list">
+        <a href="#cap-1" class="service-item">
+          <span class="service-number">01</span>
+          <span class="service-copy"><strong>Obiectiv, domeniu de aplicare, temei juridic și definiții</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-2" class="service-item">
+          <span class="service-number">02</span>
+          <span class="service-copy"><strong>Sistemul și funcționarea sistemului</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-3" class="service-item">
+          <span class="service-number">03</span>
+          <span class="service-copy"><strong>Standarde pentru transferul datelor</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-4" class="service-item">
+          <span class="service-number">04</span>
+          <span class="service-copy"><strong>Securitatea datelor și funcționarea sistemului</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-5" class="service-item">
+          <span class="service-number">05</span>
+          <span class="service-copy"><strong>Inspecție</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-6" class="service-item">
+          <span class="service-number">06</span>
+          <span class="service-copy"><strong>Dispoziții diverse</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+        <a href="#cap-7" class="service-item">
+          <span class="service-number">07</span>
+          <span class="service-copy"><strong>Anexă</strong></span>
+          <span class="service-arrow">&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENT -->
+  <section class="section-padding" style="padding: 70px 0 40px;">
+    <div class="article-wrap">
+
+      <!-- Informații document -->
+      <article class="doc-section" id="informatii">
+        <h2>Ghid de administrare ITS</h2>
+        <p><strong>Iulie 2012</strong> · Agenția Turcă pentru Medicamente și Dispozitive Medicale · Departamentul Sistemului de Urmărire și Trasabilitate a Produselor Farmaceutice</p>
+
+        <div class="contact-lines">
+          <p><strong>Adresă:</strong> Söğütözü Mahallesi, 2176 Sok. Nr. 5, P.K. 06520, Çankaya, Ankara</p>
+          <p><strong>Telefon:</strong> (312) 218 30 00</p>
+          <p><strong>Asistență:</strong> (312) 218 34 50</p>
+          <p><strong>E-mail:</strong> <a href="mailto:its@titck.gov.tr">its@titck.gov.tr</a></p>
+        </div>
+
+        <p class="doc-note">
+          Acest ghid descrie funcționarea istorică a sistemului İTS, inclusiv notificările,
+          transferul datelor, securitatea și procedurile de verificare, conform versiunii din 2012.
+        </p>
+      </article>
+
+      <!-- Notă juridică -->
+      <article class="doc-section doc-legal" id="nota-juridica-document">
+        <h2>Notă juridică</h2>
+
+        <p>
+          În sensul Legii nr. 5846 privind operele intelectuale și artistice, prezentul document și
+          întregul său conținut sunt considerate o „operă”, fiind elaborate de NART BİLİŞİM HİZMETLERİ
+          LTD. ŞTİ. (denumită în continuare „TechN’arts”). Titularul drepturilor asupra acestei opere
+          este TechN’arts.
+        </p>
+
+        <p>
+          Toate drepturile de proprietate intelectuală asupra prezentului document și asupra
+          conținutului său, inclusiv drepturile patrimoniale privind adaptarea, reproducerea,
+          distribuirea, executarea și difuzarea prin radio, aparțin exclusiv TechN’arts.
+        </p>
+
+        <p>
+          Fără acordul scris expres al TechN’arts, prezentul document, integral sau parțial, nu poate
+          fi modificat, reprodus, trimis prin poștă, transferat, republicat, distribuit sau utilizat
+          pentru crearea unor materiale derivate din original. Imaginile copiate din orice parte a
+          documentului nu pot fi publicate pe nicio platformă.
+        </p>
+
+        <p>
+          TechN’arts este singura entitate autorizată să transmită către terți oricare dintre
+          drepturile patrimoniale asupra documentului și conținutului său, să acorde terților drepturi
+          sau licențe de utilizare a acestuia ori să îl vândă.
+        </p>
+
+        <p>
+          Orice persoană care accesează direct sau indirect acest document acceptă în prealabil acești
+          termeni, precum și consecințele juridice și sancțiunile aplicabile în cazul nerespectării
+          lor. TechN’arts își rezervă toate drepturile legale în cazul încălcării oricăruia dintre
+          acești termeni.
+        </p>
+      </article>
+
+      <!-- Istoricul versiunilor -->
+      <article class="doc-section" id="versiuni">
+        <h2>Istoricul versiunilor</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Versiune</th><th>Data</th><th>Observații</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.04</td>
+                <td>22.05.2012</td>
+                <td>Au fost adăugate informații privind reviziile. Tipurile și structurile notificărilor au fost actualizate. A fost adăugată diagrama fluxului ITS (Anexa 1).</td>
+              </tr>
+              <tr>
+                <td>1.05</td>
+                <td>04.07.2012</td>
+                <td>Formatul documentului a fost revizuit.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>&copy; 2011 TechN’arts. Toate drepturile rezervate.</p>
+      </article>
+
+      <!-- 1 -->
+      <article class="doc-section" id="cap-1">
+        <h2>1. Obiectiv, domeniu de aplicare, temei juridic și definiții</h2>
+
+        <h3>1.1. Obiectiv și domeniu de aplicare</h3>
+        <p>Obiectivul prezentului ghid este de a stabili principiile esențiale privind colectarea datelor și funcționarea sistemului de urmărire, pentru a asigura trasabilitatea produselor farmaceutice.</p>
+        <p>Ghidul stabilește standardele privind desfășurarea activităților legate de Sistemul de Urmărire și Trasabilitate a Produselor Farmaceutice, precum și regulile referitoare la funcționarea și inspectarea sistemului.</p>
+
+        <h3>1.2. Temei juridic</h3>
+        <p>Prezentul ghid a fost elaborat de Nart Bilişim Hizmetleri (TechN’arts) în conformitate cu articolul 19 din „Regulamentul privind ambalarea și etichetarea medicamentelor de uz uman”, publicat la 12.08.2005, cu numărul 25904.</p>
+
+        <h3>1.3. Definiții</h3>
+        <p>În sensul prezentului ghid, termenii următori au semnificațiile indicate:</p>
+        <ul>
+          <li><strong>Ministerul:</strong> Ministerul Sănătății.</li>
+          <li><strong>Direcția Generală:</strong> Agenția Turcă pentru Medicamente și Dispozitive Medicale.</li>
+          <li><strong>GS1:</strong> Organizație internațională cu sediul la Bruxelles, care dezvoltă soluții și standarde pentru lanțul de aprovizionare activ.</li>
+          <li><strong>Simbolistica codurilor de bare:</strong> Metoda utilizată pentru codificarea și decodificarea informațiilor conținute în codul de bare, de exemplu EAN-13, ITF-14 etc.</li>
+          <li><strong>Codificarea cu bare:</strong> Imprimarea datelor care urmează să fie citite de un cititor de coduri de bare, utilizând simbolistica și metoda de imprimare corespunzătoare, pe suprafața desemnată.</li>
+          <li><strong>DataMatrix:</strong> Simbolistica bidimensională a codurilor de bare utilizată în ITS, bazată pe standardul internațional „ISO/IEC 16022 International Symbology Specification – DataMatrix ECC 200 Version”.</li>
+          <li><strong>GTIN (Global Trade Item Number – Număr global de identificare a articolelor comerciale):</strong> Număr care identifică în mod unic produsele comerciale la nivel mondial și a cărui structură este definită de GS1.</li>
+          <li><strong>Identificator de aplicație GS1 (AI – Application Identifier):</strong> Prefixe de date utilizate pentru a determina semnificația informațiilor transmise de cititorul de coduri de bare către sistemele informatice, de exemplu 01 pentru GTIN și 17 pentru data expirării.</li>
+          <li><strong>Separator de grup (Group Separator):</strong> Caracter care permite aplicațiilor informatice să distingă datele de lungimi diferite. În sistemele compatibile GS1, cititoarele de coduri de bare îl interpretează ca fiind caracterul ASCII <code>&lt;GS&gt;</code> (valoare ASCII = 29), echivalent cu caracterul FNC1 din simbolistica codurilor de bare.</li>
+          <li><strong>Expeditor:</strong> Instituțiile sau unitățile care transmit date către sistem, precum producătorii, importatorii, titularii autorizațiilor de punere pe piață sau ai permiselor, distribuitorii angro de produse farmaceutice, distribuitorii angro pentru export, farmaciile, farmaciile spitalicești și companiile de rambursare.</li>
+          <li><strong>Număr global de localizare (GLN – Global Location Number):</strong> Număr internațional de localizare, cu 13 cifre, definit de GS1 și utilizat pentru identificarea unităților precum importatorii, centrele de operațiuni logistice, distribuitorii angro de produse farmaceutice, spitalele și farmaciile, conform regulilor și procedurilor din ghidul GS1 privind aplicarea codurilor de bare.</li>
+          <li><strong>Istoricul electronic al produsului (Product Pedigree):</strong> Înregistrarea, formularul sau documentul electronic care păstrează informațiile conform standardelor generale de date, în funcție de schimbările de proprietate ale produselor la fiecare transfer.</li>
+          <li><strong>ITS:</strong> Sistemul de Urmărire și Trasabilitate a Produselor Farmaceutice.</li>
+          <li><strong>Solicitant de informații (Querier):</strong> Instituție sau unitate căreia i-au fost definite în sistem drepturi de autorizare pentru interogarea datelor.</li>
+          <li><strong>İEGM2007:</strong> Sistemul informatic automatizat al Agenției Turce pentru Medicamente și Dispozitive Medicale.</li>
+        </ul>
+      </article>
+
+      <!-- 2 -->
+      <article class="doc-section" id="cap-2">
+        <h2>2. Sistemul și funcționarea sistemului</h2>
+
+        <h3>2.1. Definirea sistemului</h3>
+        <p>Sistemul turcesc de urmărire și trasabilitate a produselor farmaceutice, prescurtat ITS, reprezintă infrastructura creată pentru urmărirea și trasabilitatea tuturor unităților individuale ale fiecărui produs farmaceutic din Turcia.</p>
+        <p>ITS reprezintă aplicarea structurii cunoscute sub denumirea de „Track &amp; Trace” în industria farmaceutică. Identificarea unică a fiecărei unități este asigurată prin serializare cu ajutorul codului DataMatrix, în locul codului de bare utilizat anterior.</p>
+        <p>Capacitatea de a urmări fiecare unitate de medicament este asigurată prin colectarea informațiilor despre fiecare unitate la fiecare etapă și pentru fiecare operațiune. Trasabilitatea este asigurată prin istoricul electronic al produsului.</p>
+        <p>ITS este prezentat în documentul original drept prima implementare de succes și unică în lume a unui sistem de urmărire și trasabilitate a produselor farmaceutice. Sistemul este conceput pentru a urmări localizarea fiecărei unități de medicament și pentru a asigura aprovizionarea sigură a pacienților cu medicamente.</p>
+        <p>Prin urmare, toate medicamentele comercializate sunt urmărite prin notificări în fiecare etapă, de la producție până la consum. Astfel, se urmărește prevenirea comercializării medicamentelor contrafăcute, a furturilor de medicamente și a fraudelor cu coduri de bare. În plus, dacă este necesar, medicamentele pot fi retrase cu ușurință de pe piață datorită trasabilității stocurilor.</p>
+        <p>Sistemul de Urmărire și Trasabilitate a Produselor Farmaceutice urmărește aproximativ 2,5 miliarde de unități de medicamente anual, fiecare unitate fiind implicată în aproximativ 10 tranzacții.</p>
+        <p>Sistemul cuprinde calculatoare, baze de date, programe informatice pentru administrarea bazelor de date și infrastructura de comunicații necesară asigurării trasabilității unităților de medicamente identificate prin DataMatrix. Trasabilitatea este realizată prin notificări transmise la fiecare etapă parcursă de medicament, începând cu notificarea producției sau a importului.</p>
+        <p>Sistemul împiedică falsificarea medicamentelor și permite urmărirea acestora din motive de siguranță.</p>
+        <p>Prin notificările primite de la producători, distribuitori angro importatori, distribuitori angro de produse farmaceutice și farmacii, precum și prin aprobările de expediere emise de companiile de rambursare, sistemul verifică și asigură faptul că o unitate de medicament este vândută o singură dată.</p>
+        <p>Sistemul de Urmărire și Trasabilitate a Produselor Farmaceutice nu are o componentă financiară.</p>
+
+        <h3>2.2. Accesul la sistem</h3>
+        <p>Accesul la sistem se realizează în două moduri: transmiterea datelor și interogarea acestora.</p>
+
+        <h4>Transmiterea datelor</h4>
+        <ul>
+          <li><strong>Transmiterea datelor pentru un singur produs:</strong> Transmiterea datelor de către unitățile care efectuează notificarea pentru un produs, utilizând serviciile web ITS.</li>
+          <li><strong>Transmiterea integrală a datelor:</strong> Metodă prin care datele sunt transmise sistemului în ansamblu, prin intermediul unui program informatic care utilizează serviciile web ITS.</li>
+        </ul>
+        <p>Procedurile de transmitere a datelor sunt stabilite de Minister.</p>
+
+        <h4>Interogarea datelor</h4>
+        <p><strong>Interogări standard:</strong></p>
+        <ul>
+          <li>Interogări privind stocurile.</li>
+          <li>Interogări privind datele de expirare.</li>
+          <li>Interogări utilizate ca bază pentru operațiunile de retragere a produselor.</li>
+          <li>Alte interogări standard.</li>
+        </ul>
+        <p><strong>Interogări nestandardizate:</strong> Alte interogări care pot fi efectuate de administrația ITS.</p>
+        <p>Transmiterea datelor și interogările trebuie efectuate în conformitate cu principiile de securitate a datelor stabilite în prezentul ghid.</p>
+        <p>Toate operațiunile efectuate sunt înregistrate în baza de date sub formă de tranzacții. Acestea sunt definite după cum urmează:</p>
+        <ul>
+          <li><strong>Inserare (Insert):</strong> Introducerea în baza de date a unei înregistrări care nu exista anterior. Transmiterea unei notificări reprezintă o inserare.</li>
+          <li><strong>Ștergere (Delete):</strong> Eliminarea anumitor produse din notificările deja transmise. Dacă a fost comisă o eroare, informațiile aferente unor produse incluse în notificare pot fi eliminate din aceasta.</li>
+          <li><strong>Actualizare (Update):</strong> Modificarea informațiilor existente în sistem nu se realizează printr-o operațiune directă de actualizare. În schimb, se transmite o notificare de ștergere a produsului și de introducere a unui alt produs.</li>
+          <li><strong>Interogare pentru rambursare (Reimbursement Query):</strong> Operațiune prin care companiile de rambursare verifică produsele expediate către ele. În urma acestei interogări, expedierea nu poate fi anulată, iar notificările aferente produselor incluse nu pot fi retrase. Această interogare este obligatorie pentru companiile de rambursare.</li>
+          <li><strong>Jurnalizare (Log):</strong> Înregistrarea tuturor operațiunilor efectuate în sistem, pentru urmărirea tranzacțiilor bazei de date și obținerea unor rezultate relevante atunci când este necesar în scopuri de securitate.</li>
+        </ul>
+
+        <h3>2.3. Condițiile de acceptare a datelor</h3>
+        <p>Condițiile de acceptare a datelor sunt următoarele:</p>
+        <ul>
+          <li>Titularii autorizațiilor de punere pe piață sau ai permiselor transmit notificările de producție și import. Notificările distribuitorilor angro de produse farmaceutice, ale distribuitorilor angro pentru export, ale spitalelor și ale farmaciilor sunt transmise de unitățile respective.</li>
+          <li>Datele transmise și primite de sistem sunt considerate documente. În cazul datelor duplicate, este acceptată o singură înregistrare.</li>
+          <li>Datele nu sunt acceptate dacă identitatea expeditorului nu corespunde identității persoanei sau unității care efectuează notificarea.</li>
+          <li>Sistemul verifică automat conținutul datelor. Informațiile care nu corespund cerințelor sunt respinse, iar expeditorului i se transmite un răspuns.</li>
+        </ul>
+
+        <h3>2.4. Păstrarea datelor</h3>
+        <p>Datele transmise sistemului sunt păstrate într-un centru desemnat de Minister.</p>
+        <p>Perioada de păstrare a datelor în sistem și de către celelalte părți care transmit notificări este de cel puțin trei ani după data expirării produselor.</p>
+      </article>
+
+      <!-- 3 -->
+      <article class="doc-section" id="cap-3">
+        <h2>3. Standarde pentru transferul datelor</h2>
+
+        <h3>3.1. Notificări</h3>
+        <p>Notificările reprezintă transferurile de date efectuate de expeditori. Entitățile care transmit notificări sunt: producătorii, distribuitorii angro importatori, distribuitorii angro de produse farmaceutice, farmaciile și farmaciile spitalicești.</p>
+        <p>Ca răspuns la notificări, sistemul transmite mesaje expeditorilor. Mesajele aferente unui anumit produs sunt marcate cu codul <code>&lt;UC&gt;</code>, iar mesajele aferente unei notificări în ansamblu sunt marcate cu codul <code>&lt;FC&gt;</code>.</p>
+        <p>Explicațiile acestor mesaje sunt publicate în secțiunea „Coduri de eroare” a serviciilor online și în serviciul de referință pentru codurile de eroare. Pentru mesajele aferente produselor se returnează numai codul de eroare, în timp ce pentru mesajele aferente notificării se returnează atât codul, cât și descrierea erorii.</p>
+
+        <h3>3.2. Tipurile de notificări</h3>
+        <p>Datele transmise prin notificări sunt organizate în următoarele tipuri.</p>
+
+        <h4>3.2.1. Notificarea de producție</h4>
+        <p>Notificare transmisă de producător pentru a înregistra produsele în sistem după fabricarea acestora. Codul utilizat în sistem este <code>M</code>.</p>
+
+        <h4>3.2.2. Notificarea de import</h4>
+        <p>Notificare transmisă de companiile farmaceutice pentru înregistrarea produselor importate în sistem. Codul utilizat este <code>I</code>.</p>
+
+        <h4>3.2.3. Notificarea de expediere</h4>
+        <p>Notificare transmisă de producători, distribuitori angro de produse farmaceutice și farmacii pentru a informa sistemul că produsul a fost expediat către un alt participant sau către un pacient. Codul utilizat este <code>S</code>.</p>
+        <p>Fiecare expediere trebuie să facă obiectul unei notificări separate.</p>
+        <p>Destinatarii către care producătorii, distribuitorii angro și farmaciile pot expedia produse sunt stabiliți prin legislația în vigoare. Restricțiile aplicabile notificărilor de expediere sunt determinate de prevederile aceleiași legislații.</p>
+        <p>În consecință:</p>
+        <ul>
+          <li>Producătorii pot expedia produse către distribuitori angro de produse farmaceutice, farmacii, companii farmaceutice care activează ca distribuitori și spitale.</li>
+          <li>Distribuitorii angro de produse farmaceutice pot expedia produse către spitale, companii, distribuitori angro pentru export sau alți distribuitori angro de produse farmaceutice.</li>
+          <li>Farmaciile pot expedia produse numai către pacienți.</li>
+        </ul>
+
+        <h4>3.2.4. Notificarea transferului de produse</h4>
+        <p>Participanții pot transmite notificări de transfer către alți participanți cu același rol, pentru a facilita accesul pacienților la medicamente.</p>
+        <ul>
+          <li>Producătorii pot transfera produse numai către alți producători.</li>
+          <li>Distribuitorii angro de produse farmaceutice pot transfera produse numai către alți distribuitori angro de produse farmaceutice.</li>
+          <li>Farmaciile pot transfera produse numai către alte farmacii.</li>
+          <li>Spitalele pot transfera produse numai către alte spitale.</li>
+        </ul>
+        <p>Dacă produsele sunt transferate gratuit de la un spital la altul, spitalul expeditor trebuie să transmită o notificare de transfer pentru produsele respective.</p>
+
+        <h4>3.2.5. Notificarea consumului</h4>
+        <p>Notificare transmisă de farmaciile spitalicești pentru a înregistra consumul produselor.</p>
+        <p>Această notificare este utilizată în cazul spitalelor în care produsele sunt consumate pentru mai mulți pacienți sau atunci când locul consumului nu poate fi determinat cu exactitate.</p>
+        <p>Dacă un singur produs a fost consumat de un pacient, dar acest lucru nu poate fi indicat clar pe factură, poate fi transmisă din nou o notificare de consum.</p>
+        <p>Returnarea produselor de către spitale nu este considerată consum. Aceste operațiuni trebuie notificate sistemului drept returnări ale unor produse achiziționate.</p>
+        <p>Nu se pot transmite notificări de consum pentru produsele expirate. Pentru acestea se pot transmite notificări de dezactivare.</p>
+
+        <h4>3.2.6. Notificarea returnării produselor</h4>
+        <p>Notificare care înregistrează ieșirea unei unități de medicament returnate dintr-o farmacie, un spital, un distribuitor angro de produse farmaceutice sau o companie distribuitoare, ca urmare a unei retrageri, a expirării sau din alt motiv.</p>
+        <p>Codul utilizat în sistem este <code>F</code>.</p>
+
+        <h4>3.2.7. Notificarea de dezactivare</h4>
+        <p>Notificare transmisă pentru produsele scoase din sistem din diverse motive. Codul utilizat este <code>D</code>.</p>
+        <p>Dezactivarea reprezintă solicitarea de închidere a înregistrării anumitor medicamente în sistem. Aceasta poate fi necesară, de exemplu, pentru:</p>
+        <ul>
+          <li>Produse care trebuie distruse deoarece au fost fabricate cu defecte sau au expirat.</li>
+          <li>Produse care au devenit nevandabile dintr-un anumit motiv.</li>
+          <li>Produse care trebuie scoase din sistem în urma unei operațiuni.</li>
+        </ul>
+        <p>Prin această notificare, numerele de serie ale produselor respective sunt închise, iar alte produse nu mai pot fi notificate folosind aceleași numere.</p>
+        <p>Motivul dezactivării este indicat succint în notificare.</p>
+
+        <p class="table-caption">Tabelul 1. Motivele dezactivării</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cod</th><th>Motiv</th></tr></thead>
+            <tbody>
+              <tr><td>10</td><td>Scoaterea din sistem</td></tr>
+              <tr><td>20</td><td>Deficiențe de producție</td></tr>
+              <tr><td>30</td><td>Distrugere în urma retragerii produselor</td></tr>
+              <tr><td>40</td><td>Distrugere din cauza expirării</td></tr>
+              <tr><td>50</td><td>Revizie</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Motivul „Deficiențe de producție” se utilizează pentru scoaterea din sistem a produselor rezultate ca rebuturi sau cu deficiențe în timpul procesului de fabricație, inclusiv a produselor care pot fi considerate deșeuri.</p>
+        <p>Notificările de dezactivare cu motivul „Revizie” sau „Deficiențe de producție” pot fi transmise numai de producători.</p>
+        <p>Nu se transmit notificări de dezactivare pentru produse care nu au fost înregistrate anterior în sistem.</p>
+        <p>Retragerile din alte motive și notificările de dezactivare pentru produse expirate pot fi efectuate de distribuitorii angro de produse farmaceutice, distribuitorii angro pentru export, farmacii și spitale.</p>
+
+        <h4>3.2.8. Notificarea de recepție a produselor</h4>
+        <p>Această notificare reprezintă un mecanism de aprobare prin care destinatarul confirmă verificarea și acceptarea produselor.</p>
+        <p>Înainte de a transmite o notificare de expediere, transfer, export, dezactivare sau consum pentru un produs, participantul trebuie să transmită mai întâi o notificare de recepție a acestuia.</p>
+        <p>Codul utilizat este <code>A</code>.</p>
+        <p>Farmaciile trebuie să verifice și să aprobe produsele prin intermediul acestei notificări. Producătorii, importatorii, distribuitorii angro de produse farmaceutice, distribuitorii angro importatori, spitalele și distribuitorii angro de produse farmaceutice reprezentativi trebuie, de asemenea, să înregistreze și să verifice recepția produselor prin această procedură.</p>
+
+        <h4>3.2.9. Notificarea exportului</h4>
+        <p>Notificare transmisă de companii pentru înregistrarea în sistem a produselor exportate care poartă cod DataMatrix.</p>
+        <p>Această notificare scoate produsele respective din sistemul de comercializare internă. Produsele incluse în notificarea de export nu mai pot fi vândute în Turcia.</p>
+        <p>La câmpul destinatar trebuie introdusă numai țara de destinație.</p>
+        <p>Codul utilizat este <code>X</code>. Notificarea poate fi transmisă de producători, distribuitori angro de produse farmaceutice și distribuitori angro pentru export.</p>
+        <p>Sistemul generează un număr pentru fiecare notificare de export.</p>
+
+        <h4>3.2.10. Notificarea de anulare a expedierii</h4>
+        <p>Farmaciile pot anula expedierile efectuate.</p>
+        <p>Expedierile efectuate fără implicarea unei companii de rambursare se anulează la nivelul produselor individuale, în timp ce expedierile către companiile de rambursare se anulează la nivelul prescripțiilor.</p>
+        <p>Codul utilizat este <code>C</code>.</p>
+        <p>Atunci când producătorii și distribuitorii angro de produse farmaceutice trebuie să recupereze produsele expediate, aceștia transmit o notificare de anulare a expedierii.</p>
+        <p>Dacă participantul destinatar a dobândit dreptul de proprietate asupra produsului printr-o notificare de recepție, anularea expedierii nu poate fi efectuată înainte ca destinatarul să transmită o notificare de returnare a produsului.</p>
+        <p>Farmaciile transmit, de asemenea, notificări de anulare a expedierii atunci când trebuie să recupereze produsele expediate.</p>
+
+        <h4>3.2.11. Notificarea de anulare a transferului</h4>
+        <p>Un participant care dorește să recâștige dreptul de proprietate asupra unui produs pentru care a transmis o notificare de transfer trebuie să transmită o notificare de anulare a transferului.</p>
+
+        <h4>Sinteza tipurilor de notificări</h4>
+        <p class="table-caption">Tabelul 2. Tipurile de notificări</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tipul notificării</th><th>Cod</th></tr></thead>
+            <tbody>
+              <tr><td>Producție</td><td>M</td></tr>
+              <tr><td>Import</td><td>I</td></tr>
+              <tr><td>Expediere și transfer de produse</td><td>S</td></tr>
+              <tr><td>Dezactivare și consum</td><td>D</td></tr>
+              <tr><td>Export</td><td>X</td></tr>
+              <tr><td>Returnarea produselor</td><td>F</td></tr>
+              <tr><td>Recepția produselor</td><td>A</td></tr>
+              <tr><td>Anularea expedierii și a transferului</td><td>C</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Metoda de corectare a erorilor din tranzacțiile de stoc nu este definită ca un tip separat de notificare.</p>
+        <p>Erorile din notificările de producție sau import se corectează prin anularea produselor care nu au fost implicate în alte tranzacții. Produsele care au fost deja implicate în tranzacții nu pot fi anulate prin această procedură.</p>
+        <p>Grupele de participanți autorizate să transmită fiecare tip de notificare, precum și grupele de participanți cărora le sunt adresate notificările inverse, sunt prezentate în Anexa 1 a documentului original.</p>
+
+        <h3>3.3. Câmpurile utilizate în notificări</h3>
+        <p>Câmpurile utilizate în notificări sunt definite după cum urmează:</p>
+        <ul>
+          <li><strong>Producător/Importator (MI):</strong> Entitatea care introduce produsele în sistem. Producătorii și importatorii sunt identificați prin codurile GLN. Aceștia pot transmite date numai pentru medicamentele pentru care dețin autorizația sau permisul corespunzător.</li>
+          <li><strong>Furnizor (FR):</strong> Participant din sector care vinde produse. Acesta poate fi un producător, importator, distribuitor angro de produse farmaceutice, spital sau farmacie. Câmpul este identificat prin codul FR și conține codul GLN.</li>
+          <li><strong>Destinatar (TO):</strong> Participant din sector care primește produsul sau persoana fizică destinatară. Poate fi un producător, importator, distribuitor angro de produse farmaceutice, farmacie, spital sau pacient. Câmpul este identificat prin codul TO. Cu excepția pacienților, destinatarii sunt identificați prin codul GLN.</li>
+          <li><strong>Data producției (MD):</strong> Data de producție utilizată ca referință pentru notificare. Formatul XML este YYYY-MM-DD.</li>
+          <li><strong>Tipul notificării (DT):</strong> Câmp care indică tipul notificării transmise. Are o lungime de un caracter alfanumeric în sistemul descris.</li>
+          <li><strong>Motivul dezactivării (DS):</strong> Câmp în care se indică motivul dezactivării.</li>
+          <li><strong>Medicul (DR):</strong> Identificatorul medicului care prescrie produsul. Se utilizează numărul național de identitate, format din 11 cifre.</li>
+          <li><strong>Tipul produsului (PT):</strong> Câmp cu o lungime de două caractere alfanumerice. Valorile indicate în document sunt PP pentru medicamente, BP pentru produse derivate și FP pentru produse nutritive.</li>
+          <li><strong>Codul de bare al produsului (GTIN):</strong> Identificatorul GTIN al produsului, cu o lungime de 14 caractere.</li>
+          <li><strong>Data expirării produsului (XD):</strong> Data de expirare a produsului. Formatul XML utilizat este YYYY-MM-DD.</li>
+          <li><strong>Numărul lotului (BN):</strong> Identificator alfanumeric cu o lungime de maximum 20 de caractere. Pot fi utilizate numai litere majuscule și cifre. Caracterele turcești nu sunt permise.</li>
+          <li><strong>Numărul de serie al produsului (SN):</strong> Identificator alfanumeric cu o lungime de maximum 20 de caractere.</li>
+          <li><strong>Informații explicite despre destinatar (RT):</strong> Câmp utilizat pentru indicarea destinatarilor care nu sunt înregistrați în sistem, de exemplu în operațiunile de export.</li>
+          <li><strong>Explicație (ISACIKLAMA):</strong> Câmp destinat explicațiilor necesare privind operațiunea. Este utilizat în operațiunile de dezactivare.</li>
+          <li><strong>Data documentului (DD):</strong> Data documentului care stă la baza unei notificări, dacă există un asemenea document. Documentul poate fi financiar sau fără caracter financiar. Utilizarea datei documentului este opțională.</li>
+          <li><strong>Numărul documentului (DN):</strong> Numărul documentului care stă la baza unei notificări, dacă există. Documentul poate fi financiar sau fără caracter financiar. Utilizarea numărului documentului este opțională.</li>
+        </ul>
+
+        <p class="table-caption">Tabelul 3. Câmpurile utilizate în notificări</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Denumirea câmpului</th><th>Etichetă</th><th>Tip</th><th>Lungime</th><th>Conținut</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Producător/Importator</td><td>MI</td><td>Numeric</td><td>13</td><td>GLN</td></tr>
+              <tr><td>Furnizor</td><td>FR</td><td>Numeric</td><td>13</td><td>GLN</td></tr>
+              <tr><td>Destinatar</td><td>TO</td><td>Numeric</td><td>13</td><td>GLN</td></tr>
+              <tr><td>Data producției</td><td>MD</td><td>Dată</td><td>12, conform sursei</td><td>Dată în format XML</td></tr>
+              <tr><td>Tipul notificării</td><td>DT</td><td>Alfanumeric</td><td>1</td><td>Codul tipului</td></tr>
+              <tr><td>Motivul dezactivării</td><td>DS</td><td>Alfanumeric</td><td>2</td><td>Codul motivului</td></tr>
+              <tr><td>Medic</td><td>DR</td><td>Numeric</td><td>11</td><td>Număr național de identitate</td></tr>
+              <tr><td>Pacient</td><td>CP</td><td>Numeric</td><td>11</td><td>Număr național de identitate</td></tr>
+              <tr><td>Tipul produsului</td><td>PT</td><td>Alfanumeric</td><td>2</td><td>Tipul produsului</td></tr>
+              <tr><td>GTIN-ul produsului</td><td>GTIN</td><td>Numeric</td><td>14</td><td>Numărul codului de bare</td></tr>
+              <tr><td>Data expirării</td><td>XD</td><td>Dată</td><td>12, conform sursei</td><td>Dată în format XML</td></tr>
+              <tr><td>Numărul lotului</td><td>BN</td><td>Alfanumeric</td><td>20</td><td>Numărul lotului</td></tr>
+              <tr><td>Numărul de serie</td><td>SN</td><td>Alfanumeric</td><td>20</td><td>Numărul de serie</td></tr>
+              <tr><td>Informații explicite despre destinatar</td><td>RT</td><td>Alfanumeric</td><td>100</td><td>Informații despre un destinatar neînregistrat</td></tr>
+              <tr><td>Explicație</td><td>ISACIKLAMA</td><td>Alfanumeric</td><td>250</td><td>Explicație generală</td></tr>
+              <tr><td>Data documentului</td><td>DD</td><td>Dată</td><td>10</td><td>Data documentului aferent notificării</td></tr>
+              <tr><td>Numărul documentului</td><td>DN</td><td>Alfanumeric</td><td>20</td><td>Numărul documentului aferent notificării</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="doc-note">Notă de fidelitate: lungimile pentru câmpurile de tip dată sunt reproduse conform tabelului din textul-sursă; ele nu au fost reinterpretate.</p>
+
+        <h4>Numărul global de localizare (GLN)</h4>
+        <p>GLN identifică o locație juridică, funcțională sau fizică din cadrul unui loc de muncă ori al unei organizații. Acesta este atribuit în conformitate cu sistemul GS1 pentru a identifica în mod unic locația respectivă la nivel mondial.</p>
+        <p>Pentru informații suplimentare despre GLN, documentul recomandă consultarea publicației GS1 intitulată „GLN Appointing Rules” (Reguli de atribuire a GLN).</p>
+        <p>În cadrul ITS, Ministerul atribuie numere GLN dintr-un interval stabilit farmaciilor, distribuitorilor angro de produse farmaceutice, distribuitorilor angro pentru export, spitalelor publice și universităților publice.</p>
+        <p>Producătorii, importatorii, companiile de rambursare și spitalele private pot obține numere GLN prin afilierea la GS1.</p>
+
+        <h3>3.4. Structura notificărilor</h3>
+        <p>Conținutul notificărilor este alcătuit din câmpurile definite în secțiunea 3.3, „Câmpurile utilizate în notificări”. Nu pot fi incluse în notificări alte date decât cele prevăzute în aceste câmpuri.</p>
+        <p>Structurile notificărilor, în funcție de tipul acestora, sunt următoarele.</p>
+
+        <h4>3.4.1. Notificarea de producție</h4>
+        <p><strong>Câmpuri obligatorii:</strong></p>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Producător/Importator (MI)</li>
+          <li>Tipul produsului (PT)</li>
+          <li>Data producției (MD)</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+        <p><strong>Câmpuri opționale:</strong></p>
+        <ul>
+          <li>Data documentului (DD)</li>
+          <li>Numărul documentului (DN)</li>
+        </ul>
+
+        <h4>3.4.2. Notificarea de import</h4>
+        <p><strong>Câmpuri obligatorii:</strong></p>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Producător/Importator (MI)</li>
+          <li>Tipul produsului (PT)</li>
+          <li>Data producției (MD)</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+        <p><strong>Câmpuri opționale:</strong></p>
+        <ul>
+          <li>Data documentului (DD)</li>
+          <li>Numărul documentului (DN)</li>
+        </ul>
+
+        <h4>3.4.3. Notificarea de expediere a producătorului/importatorului</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Destinatar (TO)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.4. Notificarea de expediere a distribuitorilor angro de produse farmaceutice</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Destinatar (TO)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.5. Notificarea de expediere a farmaciilor</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Destinatar (TO). Dacă factura este emisă unei companii de rambursare, în acest câmp se introduce codul companiei respective.</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>Medicul (DR), opțional</li>
+          <li>Pacientul (CP), opțional. Dacă în câmpul destinatarului (TO) este indicată o companie de rambursare, trebuie introdus numărul național de identitate al pacientului în acest câmp.</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.6. Notificarea de consum</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Destinatar (TO)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.7. Notificarea de dezactivare</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>Motivul dezactivării (DS)</li>
+          <li>Explicație (CT), conform etichetei din această structură a sursei</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.8. Notificarea de export</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Informații explicite despre destinatar (RT)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.9. Notificarea de returnare a produselor</h4>
+        <ul>
+          <li>Tipul notificării (DT)</li>
+          <li>Furnizor (FR)</li>
+          <li>Destinatar (TO)</li>
+          <li>Data documentului (DD), opțională</li>
+          <li>Numărul documentului (DN), opțional</li>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <h4>3.4.10. Notificarea de transfer al produselor</h4>
+        <ul>
+          <li>GTIN-ul produsului (GTIN)</li>
+          <li>Data expirării produsului (XD)</li>
+          <li>Numărul lotului (BN)</li>
+          <li>Numărul de serie al produsului (SN)</li>
+        </ul>
+
+        <p>Schemele XML pentru toate tipurile de notificări pot fi consultate la adresa indicată în documentul original:</p>
+        <p><a href="http://www.itsportal.saglik.gov.tr" target="_blank" rel="noopener noreferrer">http://www.itsportal.saglik.gov.tr</a></p>
+        <p>Deoarece toate notificările sunt transmise sistemului prin intermediul serviciilor web XML, acestea trebuie să respecte structura și standardele definite în prezentul ghid.</p>
+      </article>
+
+      <!-- 4 -->
+      <article class="doc-section" id="cap-4">
+        <h2>4. Securitatea datelor și funcționarea sistemului</h2>
+
+        <h3>4.1. Standarde de securitate a datelor</h3>
+        <p>Funcționarea sistemului se bazează pe standardul de securitate a datelor TSE ISO/EN 27001.</p>
+        <p><strong>Verificarea identității:</strong> Identitățile și parolele necesare accesării sistemului sunt stabilite și verificate.</p>
+        <p>Cererile de acces la sistem și de interogare a datelor sunt evaluate conform regulilor de autorizare, iar permisiunile necesare sunt acordate în consecință.</p>
+        <p>Informațiile transmise sunt considerate, în același timp, documente.</p>
+        <p>Utilizatorul este responsabil pentru informațiile de verificare a identității necesare accesării sistemului.</p>
+        <p>Expeditorul este responsabil pentru conținutul datelor transmise sistemului. Atunci când este necesar, sistemul transmite notificări pentru verificarea datelor.</p>
+
+        <h3>4.2. Reguli de acces</h3>
+        <p>Accesul la sistem este supus unor reguli. Accesul este definit și autorizat prin serviciul de gestionare a identităților din cadrul sistemului.</p>
+        <p><strong>Autorizații de acces la sistem:</strong> Pot accesa sistemul programatorii ITS, personalul serviciului de asistență ITS, expeditorii și solicitanții de informații. Autorizarea acestor categorii se realizează în conformitate cu regulile descrise în prezentul document.</p>
+
+        <h3>4.3. Autorizare</h3>
+        <p>Autorizarea accesului la sistem este efectuată de administrația sistemului.</p>
+        <p>Regulile de autorizare sunt următoarele:</p>
+        <ul>
+          <li>Autorizarea se acordă în urma unei cereri depuse în sistem.</li>
+          <li>Administrația sistemului atribuie fiecărei companii un nume de utilizator. Compania respectivă gestionează autorizarea utilizatorilor săi pentru acel nume de utilizator.</li>
+          <li>Utilizatorii distribuitorilor angro de produse farmaceutice și ai farmaciilor sunt identificați și autorizați de autoritățile sanitare locale, prin înregistrările realizate în sistemul İEGM2007 de către administrația sistemului.</li>
+          <li>Companiilor de rambursare li se atribuie utilizatori pentru verificarea prescripțiilor. Autorizarea acestor utilizatori este stabilită prin protocoalele încheiate cu instituțiile respective.</li>
+        </ul>
+
+        <h3>4.4. Funcționarea sistemului</h3>
+        <ul>
+          <li>Sistemul este administrat de Minister.</li>
+          <li>Dezvoltarea sistemului este documentată prin urmărirea versiunilor programelor informatice și ale documentelor.</li>
+          <li>Datele sunt colectate prin notificări. Acestea sunt transmise de expeditori către sistem.</li>
+          <li>Sistemul funcționează prin intermediul serviciilor web XML, prin care sunt acceptate notificările.</li>
+          <li>Pentru notificările de producție și import, sistemul solicită expeditorilor să obțină un „Certificat electronic calificat”, să semneze notificările cu acest certificat și să le cripteze simetric.</li>
+          <li>Tuturor expeditorilor li se furnizează un nume de utilizator și o parolă pentru transmiterea tuturor notificărilor, inclusiv a celor de producție și import.</li>
+          <li>Sistemul transmite expeditorului un cod de confirmare pentru a certifica faptul că notificarea a fost procesată.</li>
+          <li>Dacă este necesar, sistemul transmite coduri sau notificări către autorul notificării pentru verificarea acesteia.</li>
+          <li>Informațiile și documentația privind serviciile web XML pot fi consultate la adresa indicată în documentul original: <a href="http://www.iegm.gov.tr" target="_blank" rel="noopener noreferrer">http://www.iegm.gov.tr</a>.</li>
+          <li>Sistemul ITS funcționează integrat cu İEGM2007. Informațiile necesare identificării produselor, companiilor, farmaciilor, spitalelor, distribuitorilor angro pentru export și distribuitorilor angro de produse farmaceutice sunt obținute din sistemul İEGM2007 sau sunt furnizate de administrația sistemului.</li>
+        </ul>
+        <p>Informațiile sunt transferate din İEGM2007 către ITS la intervalele stabilite de administrația sistemului.</p>
+        <p>Pe baza informațiilor existente în İEGM2007, sunt trimise mesaje de activare la adresele de e-mail înregistrate, în cel mai scurt timp posibil, pentru activarea utilizatorilor.</p>
+      </article>
+
+      <!-- 5 -->
+      <article class="doc-section" id="cap-5">
+        <h2>5. Inspecție</h2>
+
+        <h3>5.1. Inspectarea datelor</h3>
+        <ul>
+          <li>Inspectarea datelor este efectuată de administrația sistemului. Rezultatele verificărilor sunt comunicate autorităților competente.</li>
+          <li><strong>Generarea istoricului electronic al produsului:</strong> Sistemul reconstruiește istoricul unui produs prin urmărirea traseului său pe baza notificărilor. Atunci când trasabilitatea poate fi aplicată tuturor unităților, istoricul produsului este evaluat de administrația sistemului.</li>
+          <li>Transmisiile de date sunt verificate în raport cu regulile de autorizare. Datele conforme sunt acceptate în sistem. Administrația sistemului verifică exactitatea informațiilor transmise prin urmărirea traseului produselor. Expeditorului i se poate solicita să retransmită datele introduse incorect sau să le elimine.</li>
+          <li>Au fost create interfețe care permit expeditorilor să își testeze sistemele.</li>
+          <li>Reclamațiile consumatorilor care intră în domeniul de aplicare al Sistemului de Urmărire și Trasabilitate a Produselor Farmaceutice sunt primite și evaluate de administrația sistemului.</li>
+          <li>Datele transmise sistemului trebuie să poată fi retransmise la cerere.</li>
+        </ul>
+      </article>
+
+      <!-- 6 -->
+      <article class="doc-section" id="cap-6">
+        <h2>6. Dispoziții diverse</h2>
+
+        <h3>6.1. Termenele de transmitere a notificărilor</h3>
+        <p>Momentul transmiterii notificărilor este stabilit de utilizator.</p>
+        <p>Se aplică următoarele restricții:</p>
+        <ul>
+          <li>Producătorii și importatorii nu pot introduce pe piață produse pentru care nu au fost transmise notificările de producție sau import.</li>
+          <li>Farmaciile nu pot elibera pacienților produse cu DataMatrix care nu au fost verificate de sistem.</li>
+          <li>Distribuitorii angro de produse farmaceutice nu pot accepta returnarea produselor cu DataMatrix care nu au fost notificate sistemului.</li>
+          <li>Notificările de export trebuie transmise numai după efectuarea exportului.</li>
+          <li>Farmaciile trebuie să transmită notificările de recepție atunci când produsele sunt achiziționate.</li>
+        </ul>
+
+        <h3>6.2. Încălcări ale regulilor sistemului</h3>
+        <p>Atunci când este identificată o încălcare, Sistemul de Urmărire și Trasabilitate a Produselor Farmaceutice procedează după cum urmează:</p>
+        <ul>
+          <li>Reclamațiile consumatorilor însoțite de prezentarea facturii de vânzare cu amănuntul aferente expedierii sunt utilizate în cadrul investigațiilor ITS pentru identificarea încălcărilor.</li>
+          <li>Dacă notificările de expediere pentru produse vândute contra numerar nu au fost transmise, iar ulterior se constată că produsele respective sunt încercate a fi revândute companiilor de rambursare, accesul utilizatorilor implicați la sistem va fi suspendat.</li>
+          <li>Utilizatorii ale căror informații despre produse nu sunt aprobate de sistem au obligația de a demonstra, la cerere, proveniența produselor.</li>
+        </ul>
+
+        <h3>6.3. Ambalaje de transport</h3>
+        <p>Pentru fiecare ambalaj de transport se utilizează un număr de serie care îl identifică în mod unic.</p>
+        <p>Aceste numere de serie pot fi generate pe baza produselor sau independent de acestea, cu condiția să fie asigurată unicitatea lor pentru compania respectivă. Metoda de numerotare a ambalajelor de transport este stabilită de companie.</p>
+        <p>Informațiile despre produsele conținute în ambalajele de transport și numărul de identificare al fiecărui ambalaj sunt stocate astfel încât să poată fi asociate și transmise la următoarea destinație. Pentru transferul acestor informații se utilizează un standard.</p>
+        <p>Informațiile despre ambalajele de transport nu sunt transmise Sistemului de Urmărire și Trasabilitate a Produselor Farmaceutice.</p>
+        <p>Dacă numerele ambalajelor de transport sunt reutilizate, numerele de serie imprimate trebuie reînnoite, iar numerele vechi nu trebuie utilizate din nou.</p>
+        <p>În situațiile în care ambalajele de transport sunt imprimate cu DataMatrix pentru a fi utilizate drept ambalaje exterioare, operațiunile se efectuează ținând cont de codurile de bare și de multiplicatorii prevăzuți în „Lista produselor cu ambalaje de transport”, publicată de Direcția Generală.</p>
+        <p>În acest mod, produsele sunt urmărite prin numerele de serie de pe ambalajele de transport. În acest caz, ambalajul de transport este considerat o unitate de produs, indiferent de numărul de produse pe care le conține.</p>
+
+        <h4>Exemplu</h4>
+        <ul>
+          <li><strong>8690123123450</strong> — Soluție pentru dializă peritoneală, ambalaj din plastic, o singură unitate.</li>
+          <li><strong>8690123001230</strong> — Soluție pentru dializă peritoneală, colet care conține 5 unități.</li>
+        </ul>
+        <p>Al doilea produs din exemple conține cinci unități din primul produs.</p>
+        <p>Prețul produsului a fost stabilit de Direcția Generală pentru primul produs, iar acesta a fost inclus în listele oficiale. Expedierea se efectuează folosind informațiile celui de-al doilea produs din exemplu. Produsul este urmărit prin numărul de serie al celui de-al doilea produs.</p>
+        <p>Companiile de rambursare calculează plățile pe baza rezultatului obținut prin înmulțirea prețului primului produs cu multiplicatorul indicat în „Lista produselor cu ambalaje de transport”.</p>
+        <p>Cantitățile conținute în ambalajele produselor cu ambalaje de transport trebuie luate în considerare de sistemele tuturor părților implicate. Pacienților trebuie să li se asigure accesul la cantitățile corespunzătoare de medicamente, conform cantităților indicate în listele respective.</p>
+      </article>
+
+      <!-- 7 -->
+      <article class="doc-section" id="cap-7">
+        <h2>7. Anexă</h2>
+
+        <h3>7.1. Anexa 1 – Fluxul de lucru ITS</h3>
+        <p class="doc-note">Diagrama fluxului de lucru ITS nu este inclusă în această versiune a paginii.</p>
+      </article>
+
+      <a class="doc-back" href="../index.html#documentatie">&larr; Înapoi la Documentație</a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <span>&copy; 2013 TechN'arts &ndash; an de referință din textul original.</span>
+    <span>TechN'arts: Tehnologia este o artă.</span>
+    <a href="nota-juridica.html">Notă juridică</a>
+  </div>
+  <div id="legal" class="legal-note">
+    Această pagină este o reconstrucție neoficială în limba română și nu reprezintă portalul oficial ITS.
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
